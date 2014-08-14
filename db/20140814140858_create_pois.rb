@@ -4,7 +4,7 @@ class CreatePois < ActiveRecord::Migration
       t.integer :tour_id
       t.string :name
       t.string :description
-      t.string :position
+      t.column :position, :json
       t.string :image
 
       t.timestamps
