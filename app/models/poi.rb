@@ -4,6 +4,6 @@ class Poi < ActiveRecord::Base
   validates :tour, presence: true
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true, length: {in: 5..2000}
-  validates :position, presence: true, uniqueness: true
+  validates :location, presence: true, uniqueness: true
   validates :image, presence: true, uniqueness: true
 end
