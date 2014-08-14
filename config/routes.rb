@@ -8,6 +8,10 @@ DivvyUp::Application.routes.draw do
   # get '/logout', to: 'sessions#destroy'
 
   root 'welcome#index'
+  resources :tours do
+    resources :pois
+      resources :comments
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
