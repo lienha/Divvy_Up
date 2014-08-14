@@ -1,8 +1,8 @@
 class Tour < ActiveRecord::Base
 	belongs_to :creator, class_name: "User"
-	belongs_to :poi
-	has_many :comments, through: :poi
-
+	has_many :pois
+	has_many :comments, through: :pois
+  serialize :center, JSON
   validates :name, presence: true, length: {in: 2..20}
   validates :center, presence: true
   validates :creator, presence: true
