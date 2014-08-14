@@ -29,7 +29,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 group :test do
-  gem 'rspec-rails', '2.13.1'
+  gem 'rspec-rails', '2.0.0'
   gem 'capybara', '2.1.0'
 end
 
