@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-	has_many :tours
+	has_many :tours, foreign_key: 'creator_id'
 	has_many :comments
 
   validates :email, presence: true, uniqueness: true
