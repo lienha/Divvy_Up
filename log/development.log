@@ -34,3 +34,98 @@ Migrating to CreateTours (20140814141024)
   [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140814141024"]]
   [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (18.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (26.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20140814140343)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (68.8ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "email" character varying(255), "password_digest" character varying(255), "username" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (24.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140814140343"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateComments (20140814140620)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (5.0ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "poi_id" integer, "user_id" integer, "text" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140814140620"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreatePois (20140814140858)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (4.6ms)[0m  [1mCREATE TABLE "pois" ("id" serial primary key, "tour_id" integer, "name" character varying(255), "description" character varying(255), "position" json, "image" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140814140858"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTours (20140814141024)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (19.3ms)[0m  [1mCREATE TABLE "tours" ("id" serial primary key, "name" character varying(255), "zoom" integer DEFAULT 12, "center" json, "creator_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140814141024"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (24.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mUser Exists (48.4ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'admin@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (95.5ms)[0m  INSERT INTO "users" ("created_at", "email", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Thu, 14 Aug 2014 20:56:02 UTC +00:00], ["email", "admin@gmail.com"], ["password_digest", "$2a$10$NJbH8eZzLzLnyVTu806G4efC9T068oxahFIrt239Z7s4HivCGr7JK"], ["updated_at", Thu, 14 Aug 2014 20:56:02 UTC +00:00], ["username", "admin"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (14.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'admin@gmail.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mUser Exists (1.7ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'admin@gmail.com' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mUser Exists (1.7ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'admin@gmail.com' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mUser Exists (1.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'admin@gmail.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  BEGIN
+  [1m[36mUser Exists (1.6ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'admin@gmail.com' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mUser Exists (0.9ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'admin@gmail.com' LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mUser Exists (1.7ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'admin@gmail.com' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (1.7ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'admin@gmail.com' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mSQL (1.9ms)[0m  DELETE FROM "users"
+  [1m[36mSQL (31.8ms)[0m  [1mDELETE FROM "tours"[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "pois"
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (1.4ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'admin@gmail.com' LIMIT 1
+  [1m[36mSQL (6.7ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Thu, 14 Aug 2014 21:02:29 UTC +00:00], ["email", "admin@gmail.com"], ["password_digest", "$2a$10$sVsvLe.CVTlMyJKLcRgDRuZbKk7iuen/./7snCzrnG62fATHI8mje"], ["updated_at", Thu, 14 Aug 2014 21:02:29 UTC +00:00], ["username", "admin"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mSQL (38.9ms)[0m  [1mINSERT INTO "tours" ("center", "created_at", "creator_id", "name", "updated_at", "zoom") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["center", "{lat: 41.8887255, lng: -87.6270584}"], ["created_at", Thu, 14 Aug 2014 21:02:29 UTC +00:00], ["creator_id", 2], ["name", "Architecture Tour I"], ["updated_at", Thu, 14 Aug 2014 21:02:29 UTC +00:00], ["zoom", 17]]
+PG::InvalidTextRepresentation: ERROR:  invalid input syntax for type json
+DETAIL:  Token "lat" is invalid.
+CONTEXT:  JSON data, line 1: {lat...
+: INSERT INTO "tours" ("center", "created_at", "creator_id", "name", "updated_at", "zoom") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"
+  [1m[35m (0.4ms)[0m  ROLLBACK
