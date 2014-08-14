@@ -34,10 +34,10 @@ group :test do
   gem 'capybara', '2.0'
 end
 
-group :development, :test do 
+group :development, :test do
 	gem 'pry'
 	gem 'pry-nav'
-end 
+end
 
 
 group :doc do
@@ -47,7 +47,7 @@ end
 
 
 # Use ActiveModel has_secure_password
- gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
 # gem 'unicorn'
