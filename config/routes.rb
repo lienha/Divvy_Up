@@ -12,7 +12,15 @@ DivvyUp::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  get '/signup', to: 'welcome#index'
+  # get '/login', to: 'sessions#new'
+  # get '/logout', to: 'sessions#destroy'
+
+  root 'welcome#index'
+  resources :tours do
+    resources :pois
+      resources :comments
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
