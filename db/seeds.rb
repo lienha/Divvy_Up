@@ -20,5 +20,5 @@ tour1 = admin.tours.first
 Poi.create( name: 'Tribune Tower', tour_id: tour1.id,
           description: 'The Tribune Tower is a neo-Gothic building located at 435 North Michigan Avenue in Chicago, Illinois, USA. It is the home of the Chicago Tribune and Tribune Company.', 
           image: 'assets/images/tribunetower2.jpg',
-          location: lat: 41.89046592218648, lng: -87.62356281280518})
+          location: {lat: 41.89046592218648, lng: -87.62356281280518})
 

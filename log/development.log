@@ -129,3 +129,39 @@ DETAIL:  Token "lat" is invalid.
 CONTEXT:  JSON data, line 1: {lat...
 : INSERT INTO "tours" ("center", "created_at", "creator_id", "name", "updated_at", "zoom") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"
   [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mSQL (1.7ms)[0m  DELETE FROM "users"
+  [1m[36mSQL (0.6ms)[0m  [1mDELETE FROM "tours"[0m
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "pois"
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'admin@gmail.com' LIMIT 1
+  [1m[36mSQL (4.2ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Thu, 14 Aug 2014 21:17:12 UTC +00:00], ["email", "admin@gmail.com"], ["password_digest", "$2a$10$viw0ULfj3hfilg3x9wmzbOU8LA0OBxcD8tfpZ.ER8ZJ5zdwgWR7ie"], ["updated_at", Thu, 14 Aug 2014 21:17:12 UTC +00:00], ["username", "admin"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mSQL (16.6ms)[0m  [1mINSERT INTO "tours" ("center", "created_at", "creator_id", "name", "updated_at", "zoom") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["center", {:lat=>41.8887255, :lng=>-87.6270584}], ["created_at", Thu, 14 Aug 2014 21:17:12 UTC +00:00], ["creator_id", 3], ["name", "Architecture Tour I"], ["updated_at", Thu, 14 Aug 2014 21:17:12 UTC +00:00], ["zoom", 17]]
+  [1m[35m (16.2ms)[0m  COMMIT
+  [1m[36mTour Load (0.7ms)[0m  [1mSELECT "tours".* FROM "tours" WHERE "tours"."user_id" = $1 ORDER BY "tours"."id" ASC LIMIT 1[0m  [[nil, 3]]
+PG::UndefinedColumn: ERROR:  column tours.user_id does not exist
+LINE 1: SELECT  "tours".* FROM "tours"  WHERE "tours"."user_id" = $1...
+                                              ^
+: SELECT  "tours".* FROM "tours"  WHERE "tours"."user_id" = $1  ORDER BY "tours"."id" ASC LIMIT 1
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "users"
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "tours"[0m
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "pois"
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'admin@gmail.com' LIMIT 1
+  [1m[36mSQL (5.9ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Thu, 14 Aug 2014 21:18:24 UTC +00:00], ["email", "admin@gmail.com"], ["password_digest", "$2a$10$SP7OqP.hnUSQEEn5WBdYceIX2WbdxpgLcw/Y1RTUeiOPNn0Vczzgu"], ["updated_at", Thu, 14 Aug 2014 21:18:24 UTC +00:00], ["username", "admin"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "tours" ("center", "created_at", "creator_id", "name", "updated_at", "zoom") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["center", {:lat=>41.8887255, :lng=>-87.6270584}], ["created_at", Thu, 14 Aug 2014 21:18:24 UTC +00:00], ["creator_id", 4], ["name", "Architecture Tour I"], ["updated_at", Thu, 14 Aug 2014 21:18:24 UTC +00:00], ["zoom", 17]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36mTour Load (0.5ms)[0m  [1mSELECT "tours".* FROM "tours" WHERE "tours"."user_id" = $1 ORDER BY "tours"."id" ASC LIMIT 1[0m  [[nil, 4]]
+PG::UndefinedColumn: ERROR:  column tours.user_id does not exist
+LINE 1: SELECT  "tours".* FROM "tours"  WHERE "tours"."user_id" = $1...
+                                              ^
+: SELECT  "tours".* FROM "tours"  WHERE "tours"."user_id" = $1  ORDER BY "tours"."id" ASC LIMIT 1
