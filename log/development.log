@@ -1,0 +1,36 @@
+  [1m[36m (29.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (6.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (8.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (23.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mUser Load (6.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+PG::UndefinedTable: ERROR:  relation "users" does not exist
+LINE 1: SELECT "users".* FROM "users"
+                              ^
+: SELECT "users".* FROM "users"
+  [1m[36m (3.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20140814140343)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (16.9ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "email" character varying(255), "password_digest" character varying(255), "username" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (24.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140814140343"]]
+  [1m[36m (2.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreateComments (20140814140620)
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (6.0ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "poi_id" integer, "user_id" integer, "text" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140814140620"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreatePois (20140814140858)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (5.6ms)[0m  [1mCREATE TABLE "pois" ("id" serial primary key, "tour_id" integer, "name" character varying(255), "description" character varying(255), "position" json, "image" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140814140858"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTours (20140814141024)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (20.8ms)[0m  [1mCREATE TABLE "tours" ("id" serial primary key, "name" character varying(255), "zoom" integer DEFAULT 12, "center" json, "creator_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140814141024"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
