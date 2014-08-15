@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140814203636) do
+ActiveRecord::Schema.define(version: 20140815120725) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20140814203636) do
     t.integer  "tour_id"
     t.string   "name"
     t.string   "description"
-    t.string   "location"
+    t.json     "position"
     t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20140814203636) do
   create_table "tours", force: true do |t|
     t.string   "name"
     t.integer  "zoom",       default: 12
-    t.string   "center"
+    t.json     "center"
     t.integer  "creator_id"
     t.datetime "created_at"
     t.datetime "updated_at"
