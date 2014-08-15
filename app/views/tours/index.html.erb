@@ -1,0 +1,14 @@
+<div class="sub_title">
+  Combining the adventure of a Divvy bike ride 
+  with the sights of Chicago. We have a selection of self-guided bike
+  tours you are bound to enjoy.
+</div>
+
+<div class="intro">
+
+  <ul class="tour_list">
+  <% @tours.each do |tour| %>
+    <li><a href='/tours/<%=tour.id%>'><%= tour.name %></a></li>
+  <% end %>
+  </ul>
+</div>
