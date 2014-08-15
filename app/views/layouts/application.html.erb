@@ -3,40 +3,37 @@
   <head>
     <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <% if signed_in? %>
-      <%= link_to "Sign out", signout_path, method: "delete" %>
-    <% else %>
-      <%= link_to 'Sign in', signin_path %> or <%= link_to 'Sign up', signup_path %>
-    <% end %>
+
 
     <title><%= content_for?(:title) ? yield(:title) : "Divvy Up" %></title>
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
 
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+
+    <%= csrf_meta_tags %>
+    <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag 'jquery.vide.min'%>
     <%= stylesheet_link_tag "foundation-icons" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
-    <%= csrf_meta_tags %>
   </head>
-
-  <body >
-   <nav class="icon-bar four-up">
+  <body data-vide-bg="assets/ocean.mp4"  data-vide-options="loop: true, muted: false, position: 0% 0%">
+   <nav class="icon-bar five-up">
       <a class="item">
         <label>About Us</label>
       </a>
       <a class="item">
-        <label>Plan</label>
+        <label>Contact Us</label>
       </a>
       <a class="item">
         <label>Tour</label>
       </a>
-      <a class="item">
-        <label>Contact Us</label>
-      </a>
+      <% if signed_in? %>
+        <%= link_to ("<label>Sign Out</label>").html_safe, signout_path, method: "delete", class: "item"%><label>Sign Out</label>
+      <% else %>
+        <%= link_to ("<label>Sign In</label>").html_safe, signin_path, class: "item" %> or <%= link_to ("<label>Sign Up</label>").html_safe, signup_path, class: "item" %>
+      <% end %>
     </nav>
-  <div id="container" data-vide-bg="../../assets/vid/ocean.mp4">
+  <div id="container" >
     <%= yield %>
-    <%= javascript_include_tag "application" %>
   </div>
   </body>
 </html>
