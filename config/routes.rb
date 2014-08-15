@@ -1,4 +1,15 @@
 DivvyUp::Application.routes.draw do
+  get "sessions/new"
+  resources :users, only: [:new, :create]
+  resources :sessions, only: [:new, :create, :destroy]
+
+  match '/signup',  to: 'users#new',            via: 'get'
+  get '/signin',  to: 'sessions#new',         as: 'signin'
+  match '/signout', to: 'sessions#destroy',     via: 'delete'
+
+  # post '/sessions', to: 'sessions#create'
+
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -9,8 +20,9 @@ DivvyUp::Application.routes.draw do
 
   root 'welcome#index'
   resources :tours do
-    resources :pois
+    resources :pois do
       resources :comments
+    end 
   end
 
   # Example of regular route:

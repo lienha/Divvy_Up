@@ -1,0 +1,29 @@
+
+<div class="row">
+    <%= form_for(@user) do |t| %>
+      <%= render 'error_messages' %>
+    <p>
+      <%= t.label :email %><br>
+      <%= t.email_field :email %>
+    </p>
+
+    <p>
+      <%= t.label :username %><br>
+      <%= t.text_field :username %>
+    </p>
+
+    <p>
+      <%= t.label :enter_password %><br>
+      <%= t.password_field :password %>
+    </p>
+
+    <p>
+      <%= t.label :password_confirmation %><br>
+      <%= t.password_field :password_confirmation %>
+    </p>
+
+    <p>
+    <%= t.submit value="Sign up" %>
+  </p>
+  <%end%>
+</div>
