@@ -4,8 +4,10 @@ DivvyUp::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   match '/signup',  to: 'users#new',            via: 'get'
-  match '/signin',  to: 'sessions#new',         via: 'get'
+  get '/signin',  to: 'sessions#new',         as: 'signin'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
+
+  # post '/sessions', to: 'sessions#create'
 
   
   # The priority is based upon order of creation: first created -> highest priority.

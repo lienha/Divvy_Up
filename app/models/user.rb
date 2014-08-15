@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
   before_save { self.email = email.downcase }
   before_create :create_remember_token
-  attr_accessor :name, :email
 
 	has_many :tours, foreign_key: 'creator_id'
 	has_many :comments
