@@ -1,30 +1,19 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-=======
-<html>
-<head>
-  <title>DivvyUp</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<% if signed_in? %>
-  <%= link_to "Sign out", signout_path, method: "delete" %>
-<% else %>
-  <%= link_to 'Sign in', signin_path %> or <%= link_to 'Sign up', signup_path %>
-<% end %>
-
->>>>>>> b3a54d6668c5dae2c598a67d127cd5a93ce25e20
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <% if signed_in? %>
+      <%= link_to "Sign out", signout_path, method: "delete" %>
+    <% else %>
+      <%= link_to 'Sign in', signin_path %> or <%= link_to 'Sign up', signup_path %>
+    <% end %>
 
     <title><%= content_for?(:title) ? yield(:title) : "Divvy Up" %></title>
 
-    <%= stylesheet_link_tag    "application" %>
-        <%= stylesheet_link_tag "foundation-icons" %>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= stylesheet_link_tag "foundation-icons" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>

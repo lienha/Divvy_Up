@@ -164,8 +164,8 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   capybara (= 2.0)
   coffee-rails (~> 4.0.0)
-  foundation-rails
   faker (~> 1.4.2)
+  foundation-rails
   jbuilder (~> 1.2)
   jquery-rails
   pg
