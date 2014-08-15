@@ -10,15 +10,16 @@
     <% end %>
 
     <title><%= content_for?(:title) ? yield(:title) : "Divvy Up" %></title>
-
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag 'jquery.vide.min'%>
     <%= stylesheet_link_tag "foundation-icons" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
 
-  <body>
+  <body >
    <nav class="icon-bar four-up">
       <a class="item">
         <label>About Us</label>
@@ -33,7 +34,7 @@
         <label>Contact Us</label>
       </a>
     </nav>
-  <div id="container">
+  <div id="container" data-vide-bg="../../assets/vid/ocean.mp4">
     <%= yield %>
     <%= javascript_include_tag "application" %>
   </div>

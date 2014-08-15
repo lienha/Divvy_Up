@@ -4,5 +4,5 @@ class ToursController < ApplicationController
 	end
 	def show
 		render 'show'
-	end	
+	end
 end

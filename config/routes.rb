@@ -9,20 +9,19 @@ DivvyUp::Application.routes.draw do
 
   # post '/sessions', to: 'sessions#create'
 
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  get '/signup', to: 'welcome#index'
   # get '/login', to: 'sessions#new'
   # get '/logout', to: 'sessions#destroy'
 
-  root 'welcome#index'
+  root 'tours#index'
   resources :tours do
     resources :pois do
       resources :comments
-    end 
+    end
   end
 
   # Example of regular route:
