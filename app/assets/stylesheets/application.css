@@ -9,5 +9,29 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require foundation_and_overrides
+
  *= require_tree .
  */
+
+html, body{
+  min-width: 100%;
+}
+
+#container{
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+#intro{
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#intro h2{
+  margin: 0.8em auto;
+  font-size: 10em;
+}
