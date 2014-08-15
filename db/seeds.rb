@@ -18,7 +18,7 @@ admin = User.create( username: 'admin', email: 'admin@gmail.com', password: 'pas
 
 
 Tour.create(name: 'Architecture Tour', creator_id: admin.id, zoom: 17,
-  center: JSON.generate({lat: 41.8887255, lng: -87.6270584}.to_json)
+  center: {lat: 41.8887255, lng: -87.6270584}.to_json)
 
 Tour.create(name: 'Party Tour', creator_id: 1, zoom: 17,
   center: {lat: 41.8887255, lng: -87.6270584}.to_json)
