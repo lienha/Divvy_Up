@@ -64,19 +64,19 @@
         map.mapTypes.set('map_styles_festival', styled_divvy);
         map.setMapTypeId('map_styles_festival');
         mapMarkers();
-      };
-      function mapMarkers(){
+        function mapMarkers(){
         <% @location.each do |l| %>
         var mark = new google.maps.Marker({
           position: new google.maps.LatLng(<%= l[:lat] %>, <%= l[:lng] %>),
           map: map,
           title: "HELLO!"
           })
-        console.log("hi");
         <% end %>
+        };
       };
 
       google.maps.event.addDomListener(window, 'load', initialize);
+
 
 
     </script>
