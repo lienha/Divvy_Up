@@ -20,8 +20,9 @@ DivvyUp::Application.routes.draw do
 
   root 'welcome#index'
   resources :tours do
-    resources :pois
+    resources :pois do
       resources :comments
+    end 
   end
 
   # Example of regular route:
