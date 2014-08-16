@@ -31,3 +31,39 @@ Migrating to AddRememberTokenToUsers (20140814203636)
   [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140814203636"]]
   [1m[36m (5.1ms)[0m  [1mCOMMIT[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (43.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (26.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20140814140343)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (34.3ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "email" character varying(255), "password_digest" character varying(255), "username" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (14.1ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140814140343"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Migrating to CreateComments (20140814140620)
+  [1m[36m (6.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (16.0ms)[0m  CREATE TABLE "comments" ("id" serial primary key, "poi_id" integer, "user_id" integer, "text" text, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140814140620"]]
+  [1m[35m (0.9ms)[0m  COMMIT
+Migrating to CreatePois (20140814140858)
+  [1m[36m (6.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (20.2ms)[0m  CREATE TABLE "pois" ("id" serial primary key, "tour_id" integer, "name" character varying(255), "description" character varying(255), "location" character varying(255), "image" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140814140858"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Migrating to CreateTours (20140814141024)
+  [1m[36m (6.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (14.8ms)[0m  CREATE TABLE "tours" ("id" serial primary key, "name" character varying(255), "zoom" integer DEFAULT 12, "center" character varying(255), "creator_id" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140814141024"]]
+  [1m[35m (5.9ms)[0m  COMMIT
+Migrating to AddRememberTokenToUsers (20140814203636)
+  [1m[36m (6.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "users" ADD COLUMN "remember_token" character varying(255)
+  [1m[36m (6.5ms)[0m  [1mCREATE INDEX "index_users_on_remember_token" ON "users" ("remember_token")[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140814203636"]]
+  [1m[36m (6.2ms)[0m  [1mCOMMIT[0m
+Migrating to ChangeDescriptionToText (20140816030054)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "pois" ALTER COLUMN "description" TYPE text[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140816030054"]]
+  [1m[36m (6.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
