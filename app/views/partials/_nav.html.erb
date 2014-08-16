@@ -1,5 +1,5 @@
 <div class="contain-to-grid sticky">
-    <nav class="top-bar" data-topbar data-options="sticky_on: large">
+    <nav class="top-bar" data-topbar data-options="is_hover: false">
     <ul class="title-area">
       <li class="name">
         <h1><a href="/">Divvy Up</a></h1>
@@ -13,11 +13,11 @@
       <ul class="right">
         <li class="has-dropdown">
           <a href="#">Tour</a>
-          <ul class="dropdown">
-            <% Tour.all.each do |tour| %>
-            <li><a href='/tours/<%=tour.id%>'><%= tour.name %></a></li>
-            <% end %>
-          </ul>
+            <ul class="dropdown">
+              <% Tour.all.each do |tour| %>
+                <li><a href='/tours/<%=tour.id%>'><%= tour.name %></a></li>
+              <% end %>
+            </ul>
         </li>
         <li class="item"><a href="#">About Us</a></li>
         <li class="item"><a href="#">Contact Us</a></li>
