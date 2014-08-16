@@ -1,0 +1,9 @@
+<% if @poi.comments.any? %>
+  <% i = 1 %>
+  <% @poi.comments.each do |f| %>
+    <% if f.user %>
+      <article class="comment"><%= f.text %><br>
+      <small><%= f.user.username %></small></article>
+    <% end %>
+  <% end %>
+<% end %>

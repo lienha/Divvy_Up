@@ -1,5 +1,6 @@
 class Poi < ActiveRecord::Base
 	belongs_to :tour
+	has_many :comments
   serialize :location, JSON
   validates :tour, presence: true
   validates :name, presence: true
