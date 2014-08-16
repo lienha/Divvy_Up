@@ -40,6 +40,7 @@ Tour.create(name: 'Grand Tour', creator_id: users[4], zoom: 17,
 
 tour1 = admin.tours.first
 tour2 = Tour.find_by(name: 'Crime and Mob Tour')
+tour3 = Tour.find_by(name: 'Film Tour')
 
 # create some POIs for our tours
 Poi.create( name: 'Tribune Tower', tour_id: tour1.id,
@@ -79,6 +80,30 @@ Poi.create( name: 'Victory Gardens Theatre', tour_id: tour2.id,
           description: "On February 14th, 1929, in an unheated brick garage at 2122 N. Clark St., seven men were lined up against a whitewashed wall and pumped with 90 bullets from submachine guns, shotguns and a revolver, eliminating the last challenge to Al Capone for the mantle of crime boss in Chicago.",
           image: "assets/images/victorygarden.jpg",
           location: {lat: 41.9207993, lng: -87.6375942}.to_json)
+
+Poi.create( name: 'Union Station', tour_id: tour3.id,
+          description: "Union Station is a major railroad station that opened in 1925 in Chicago, replacing an earlier station built in 1881. It is the third-busiest rail terminal in the United States and is now the only intercity rail terminal in Chicago. It handles approximately 120,000 passengers on an average weekday and is one of Chicago’s most iconic structures, reflecting the city’s strong architectural heritage and historical achievements. Its facilities are mostly underground, buried beneath streets and skyscrapers.",
+          image: "assets/images/unionStation.jpg",
+          location: {lat: 41.878607, lng: -87.639408}.to_json)
+
+Poi.create( name: 'Marina City', tour_id: tour3.id,
+          description: "The Marina City complex was designed in 1959 by architect Bertrand Goldberg and completed in 1964 at a cost of $36 million. Local television station WFLD, (FOX Channel 32) had its studios and transmitter at Marina City for eighteen years until they were bought by Metromedia. WLS-TV (ABC Channel 7) kept its transmitter atop Marina City until the Willis Tower (formerly known as Sears Tower) was completed.",
+          image: "assets/images/marina_city.jpg",
+          location: {lat: 41.888064, lng: -87.628422}.to_json)
+
+Poi.create( name: 'Pump Room', tour_id: tour3.id,
+          description: "The Pump Room, established October 1, 1938, by Ernie Byfield, is a restaurant located in the Public Chicago Hotel, formerly The Ambassador East, in Chicago's Gold Coast area. The restaurant served a number of celebrities who were regular customers and has been written about in books and articles.",
+          image: "assets/images/pumproom.jpg",
+          location: {lat: 41.887937, lng: -87.629109}.to_json)
+
+Poi.create( name: 'Cloud Gate', tour_id: tour3.id,
+          description: "Cloud Gate is a public sculpture by Indian-born British artist Anish Kapoor, that is the centerpiece of AT&T Plaza at Millennium Park. Constructed between 2004 and 2006, the sculpture is nicknamed The Bean. The design was inspired by liquid mercury and the sculpture's surface reflects and distorts the city's skyline. Visitors are able to walk around and under Cloud Gate's 12-foot (3.7 m) high arch.",
+          image: "assets/images/bean.jpg",
+          location: {lat: 41.882925, lng: -87.623315}.to_json)
+
+
+
+
 
 
 
