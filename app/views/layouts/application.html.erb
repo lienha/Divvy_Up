@@ -14,16 +14,18 @@
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag 'jquery.vide.min'%>
     <%= stylesheet_link_tag "foundation-icons" %>
+
     <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?sensor=false">
+      src="http://maps.google.com/maps/api/js?sensor=true">
     </script>
+    <%= javascript_include_tag 'gmaps' %>
   </head>
 
 
   <%= render 'partials/nav' %>
 
   <body data-vide-bg="assets/bike.mp4"  data-vide-options="loop: true, muted: false, position: 0% 0%">
-   
+
 
 
     <%= yield %>
