@@ -1,0 +1,43 @@
+<div class="contain-to-grid sticky">
+    <nav class="top-bar" data-topbar data-options="sticky_on: large">
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="/">Divvy Up</a></h1>
+      </li>
+       <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <section class="top-bar-section">
+      <!-- Right Nav Section -->
+      <ul class="right">
+        <li class="has-dropdown">
+          <a href="#">Tour</a>
+          <ul class="dropdown">
+            <% Tour.all.each do |tour| %>
+            <li><a href='/tours/<%=tour.id%>'><%= tour.name %></a></li>
+            <% end %>
+          </ul>
+        </li>
+        <li class="item"><a href="#">About Us</a></li>
+        <li class="item"><a href="#">Contact Us</a></li>
+      </ul>
+
+      <!-- Left Nav Section -->
+      <ul class="left">
+        <% if signed_in? %>
+          <li>
+            <%= link_to "Sign out", signout_path, method: "delete" %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to 'Sign in', signin_path %>
+          </li>
+          <li>
+            <%= link_to 'Sign up', signup_path %>
+          </li>
+        <% end %>
+      </ul>
+    </section>
+  </nav>
+</div>

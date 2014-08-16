@@ -18,6 +18,10 @@
       src="https://maps.googleapis.com/maps/api/js?sensor=false">
     </script>
   </head>
+<<<<<<< HEAD
+
+  <%= render 'partials/nav' %>
+=======
   <body data-vide-bg="assets/bike.mp4"  data-vide-options="loop: true, muted: false, position: 0% 0%">
    <nav class="icon-bar five-up">
       <a class="item">
@@ -35,6 +39,7 @@
         <%= link_to ("<label>Sign In</label>").html_safe, signin_path, class: "item" %> or <%= link_to ("<label>Sign Up</label>").html_safe, signup_path, class: "item" %>
       <% end %>
     </nav>
+>>>>>>> 6a3fb80b16f89543ed45f492dca7b328f21965a3
 
     <%= yield %>
   </body>
