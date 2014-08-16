@@ -57,9 +57,11 @@
           }
         };
 
+        var map;
+
       function initialize() {
 
-        var map = new google.maps.Map(document.getElementById("map-canvas"),
+        map = new google.maps.Map(document.getElementById("map-canvas"),
             mapOptions);
         map.mapTypes.set('map_styles_festival', styled_divvy);
         map.setMapTypeId('map_styles_festival');
@@ -74,7 +76,21 @@
         <% end %>
         };
       };
-      google.maps.event.addDomListener(window, 'load', initialize);
+      // google.maps.event.addDomListener(window, 'load', initialize);
+
+      
+
+      $(document).ready(function () {
+        initialize();
+        google.maps.event.addListener(map, 'click', function(event) {
+          // Steve put in to capture click points - testing for divvy display
+          var pointx = event.latLng.lat();
+          var pointy = event.latLng.lng();
+          alert ("lat: " + pointx + " lng: " + pointy);
+        });
+        
+      });
+
     </script>
 
     <div id="map-canvas"/>
