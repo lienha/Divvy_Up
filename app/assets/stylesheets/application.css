@@ -23,11 +23,6 @@ html, body{
   height: 600px;
 }
 
-#container{
-  width: 100%;
-  margin: 0 auto;
-  text-align: center;
-}
 
 ul.tour_list {
   list-style: none;
