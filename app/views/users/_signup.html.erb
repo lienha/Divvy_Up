@@ -1,29 +1,38 @@
 
-<div class="row">
-    <%= form_for(@user) do |t| %>
-      <%= render 'error_messages' %>
-    <p>
-      <%= t.label :email %><br>
-      <%= t.email_field :email %>
-    </p>
 
-    <p>
-      <%= t.label :username %><br>
-      <%= t.text_field :username %>
-    </p>
+<%= form_for(@user) do |t| %>
+  <%= render 'error_messages' %>
+    <div class="row">
+      <div class="small-6 columns">
+          <%= t.label :email %>
+          <%= t.email_field :email %>
+        </div>
+    </div>
 
-    <p>
-      <%= t.label :enter_password %><br>
-      <%= t.password_field :password %>
-    </p>
+    <div class="row">
+      <div class="small-6 columns">
+          <%= t.label :username %>
+          <%= t.text_field :username %>
+        </div>
+    </div>
 
-    <p>
-      <%= t.label :password_confirmation %><br>
-      <%= t.password_field :password_confirmation %>
-    </p>
+    <div class="row">
+      <div class="small-6 columns">
+          <%= t.label :enter_password %>
+          <%= t.password_field :password %>
+        </div>
+    </div>
 
-    <p>
-    <%= t.submit value="Sign up" %>
-  </p>
-  <%end%>
-</div>
+    <div class="row">
+      <div class="small-6 columns">
+          <%= t.label :password_confirmation %>
+          <%= t.password_field :password_confirmation %>
+        </div>
+      </div>
+
+    <div class="row">
+      <div class="small-6 columns">
+        <%= t.submit value="Sign up", class: "button radius" %>
+      </div>
+    </div>
+<%end%>
