@@ -25,7 +25,7 @@ Tour.create(name: 'Architecture Tour', creator_id: admin.id, zoom: 17,
 Tour.create(name: 'Sculpture Tour', creator_id: users[0].id, zoom: 17,
   center: {lat: 41.8887255, lng: -87.6270584}.to_json)
 
-Tour.create(name: 'Crime and Mob Tour', creator_id: users[1].id, zoom: 15,
+Tour.create(name: 'Crime and Mob Tour', creator_id: admin.id, zoom: 15,
   center: {lat: 41.92517580576991, lng: -87.6439905166626}.to_json) 
 
 Tour.create(name: 'Film Tour', creator_id: users[2].id, zoom: 17,
@@ -34,7 +34,7 @@ Tour.create(name: 'Film Tour', creator_id: users[2].id, zoom: 17,
 Tour.create(name: 'City Tour', creator_id: users[3].id, zoom: 17,
   center: {lat: 41.8887255, lng: -87.6270584}.to_json)
 
-Tour.create(name: 'Grand Tour', creator_id: users[4], zoom: 17,
+Tour.create(name: 'Grand Tour', creator_id: admin.id, zoom: 17,
   center: {lat: 41.8887255, lng: -87.6270584}.to_json)
 
 
