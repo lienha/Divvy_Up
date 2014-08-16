@@ -29,38 +29,41 @@ html, body{
   text-align: center;
 }
 
-
-#intro{
-  width: 100%;
-  margin: 0 auto;
-  text-align: center;
-}
-
-#intro h2{
-  margin: 0.8em auto;
-  font-size: 10em;
-}
-
 ul.tour_list {
   list-style: none;
   margin-left: 0;
 }
 
+ul.tour_list li {
+  margin: 10px;
+  padding: 3px;
+}
+
 ul.tour_list a, ul.tour_list a:hover, ul.tour_list a:visited {
-  color: #000;
+  padding: 10px;
+  color: white;
   text-decoration: none;
 }
 
+ul.tour_list a:hover {
+  color: #DBDA89;
+}
+
 .intro {
-  padding: 10px;
   margin: 40px auto;
-  background-color: #fff;
+  background-color: rgba(0,0,0,0.5);
   width: 20%;
-  max-width: 200px;
+  max-width: 240px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; /* future proofing */
+  -khtml-border-radius: 10px; /* for old Konqueror browsers */
 }
 
 .sub_title {
-  background-color: #fff;
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  padding: 10px;
   max-width: 550px;
   margin: 30px auto;
   -moz-border-radius: 10px;
