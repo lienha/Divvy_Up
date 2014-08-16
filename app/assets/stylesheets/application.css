@@ -19,15 +19,10 @@ html, body{
   height: 100%;
 }
 #map-canvas{
-  height: 100%;
-
-}
-
-#container{
   width: 100%;
-  margin: 0 auto;
-  text-align: center;
+  height: 600px;
 }
+
 
 ul.tour_list {
   list-style: none;

@@ -1,5 +1,15 @@
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.container').vide('assets/bike.mp4');
+  var instance = $('.container').data('vide');
+  var video = instance.getVideoObject();
+});
+
+</script>
+
+<div class="container" style="width:100%; height: 700px; position: absolute;">
 <div class="sub_title">
-  Combine the adventure of a Divvy bike ride 
+  Combine the adventure of a Divvy bike ride
   with the sights of Chicago. We have a selection of self-guided bike
   tours you are bound to enjoy.
 </div>
@@ -11,4 +21,5 @@
     <li><a href='/tours/<%=tour.id%>'><%= tour.name %></a></li>
   <% end %>
   </ul>
+</div>
 </div>
