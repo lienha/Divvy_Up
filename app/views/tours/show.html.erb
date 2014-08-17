@@ -37,19 +37,19 @@
           })
           info<%= l.id %>.open(map);
           google.maps.event.addListener(info<%= l.id %>, 'domready', function(){
-                  $('#img<%=l.id %>').avgrund({width: 800,
-                                              height: 600,
+                  $('#img<%=l.id %>').avgrund({width: 640,
+                                              height: 350,
                                               showClose: false,
                                               showCloseText: '',
                                               closeByEscape: true,
                                               closeByDocument: true,
-                                              holderClass: '',
+                                              holderClass: 'popup',
                                               overlayClass: '',
                                               enableStackAnimation: false,
-                                              onBlurContainer: '',
+                                              onBlurContainer: '#map',
                                               openOnEvent: true,
                                               setEvent: 'click',
-                                              template: "<article><h1><%= l.name %></h1><br><%= l.description %><br><%= render partial: 'comments/comment', locals:{poi: l}%></article>"
+                                              template: "<article class='poi_container'><img src='<%=l.image%>'><h1><%= l.name %></h1><br><%= l.description %><br><%= render partial: 'comments/comment', locals:{poi: l}%></article><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>Hello"
                                             });
                 });
         <% end %>
