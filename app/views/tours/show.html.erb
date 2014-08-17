@@ -26,9 +26,10 @@
             lng: <%= JSON.parse(l.location, {symbolize_names: true})[:lng] %>,
             title: "<%= l.name %>",
             id: "<%= l.id %>",
-            visible: true
+            visible: false
             }
           )
+
           var info<%= l.id %> = new google.maps.InfoWindow();
           var infoLoc<%= l.id %> = new google.maps.LatLng(<%= JSON.parse(l.location, {symbolize_names: true})[:lat] %>,<%= JSON.parse(l.location, {symbolize_names: true})[:lng] %>);
           info<%= l.id %>.setOptions({
@@ -49,7 +50,7 @@
                                               onBlurContainer: '#map',
                                               openOnEvent: true,
                                               setEvent: 'click',
-                                              template: "<article class='poi_container'><img src='<%=l.image%>'><h1><%= l.name %></h1><br><%= l.description %><br><%= render partial: 'comments/comment', locals:{poi: l}%></article><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>Hello"
+                                              template: "<article class='poi_container'><img src='<%=l.image%>'><h1><%= l.name %></h1><br><%= l.description %><%= render partial: 'comments/comment', locals:{poi: l}%></article>"
                                             });
                 });
         <% end %>
