@@ -1,6 +1,6 @@
 class PoisController < ApplicationController
 	def show
-		@poi = Poi.find(params[:poi_id])
+		@poi = Poi.find(params[:id])
 		render 'show'
 	end
 end
