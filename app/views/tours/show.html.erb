@@ -54,9 +54,21 @@
                 });
         <% end %>
 
+            var stations; 
+    $.ajax({url:"http://shrouded-beach-2183.herokuapp.com/stations/nearby",
+            data: {lat: 41.8887255,
+                  lon: -87.6270584},
+            type: "GET", 
+            dataType: "json",
+            success: function(json){
+            stations = json         
+            alert("Yes!")
+          }; 
+          });
 
       }
     );
     </script>
 
     <div id="map"></div>
+
