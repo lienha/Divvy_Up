@@ -37,8 +37,8 @@
           })
           info<%= l.id %>.open(map);
           google.maps.event.addListener(info<%= l.id %>, 'domready', function(){
-                  $('#img<%=l.id %>').avgrund({width: 380,
-                                              height: 280,
+                  $('#img<%=l.id %>').avgrund({width: 800,
+                                              height: 600,
                                               showClose: false,
                                               showCloseText: '',
                                               closeByEscape: true,
@@ -49,13 +49,7 @@
                                               onBlurContainer: '',
                                               openOnEvent: true,
                                               setEvent: 'click',
-                                              template: "<article>
-<img src='<%= l.image %>' height='42' width='42'>
-<h1><%= l.name %></h1>
-<%= l.location %><br>
-<%= l.description %><br>
-<%= render partial: 'comments/comment', locals:{poi: l}%>
-</article>"
+                                              template: "<article><h1><%= l.name %></h1><br><%= l.description %><br><%= render partial: 'comments/comment', locals:{poi: l}%></article>"
                                             });
                 });
         <% end %>
