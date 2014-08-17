@@ -7,6 +7,7 @@ DivvyUp::Application.routes.draw do
   get '/signin',  to: 'sessions#new',         as: 'signin'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
 
+  get '/howitworks', to: 'welcome#howitworks'
   # post '/sessions', to: 'sessions#create'
 
 
