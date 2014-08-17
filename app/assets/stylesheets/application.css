@@ -114,7 +114,13 @@ ul.tour_list a:hover {
 div.avgrund-popin.popup{
   overflow-y: scroll;
 }
-
+.comment{
+  padding: 15px;
+  border-bottom: 1px solid rgba(0,0,0,0.5);
+}
 .poi_container{
   width: 600;
+  margin-bottom: 20px;
+  padding-bottom: 40px;
+  border-bottom: 2px solid #ccc;
 }
