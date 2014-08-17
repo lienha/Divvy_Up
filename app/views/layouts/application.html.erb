@@ -9,21 +9,23 @@
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
 
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-
-    <%= csrf_meta_tags %>
+    <%= javascript_include_tag 'jquery.avgrund.min' 'data-turbolinks-track' => true%>
     <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "http://maps.google.com/maps/api/js?sensor=true" %>
     <%= javascript_include_tag 'jquery.vide.min'%>
     <%= stylesheet_link_tag "foundation-icons" %>
-    <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?sensor=false">
-    </script>
+
+
+
+    <%= csrf_meta_tags %>
+
   </head>
 
 
 
-  <body data-vide-bg="assets/bike.mp4"  data-vide-options="loop: true, muted: false, position: 0% 0%">
-  <%= render 'partials/nav' %>
-   
+
+  <body>
+    <%= render 'partials/nav' %>
 
 
     <%= yield %>

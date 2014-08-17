@@ -1,0 +1,8 @@
+<article>
+<img src='/assets/trump_tower.jpg' height='42' width='42'>
+<h1>Trump Tower</h1>
+<%= poi.name %><br>
+<%= poi.location %><br>
+<%= poi.description %><br>
+<%= render partial: 'comments/comment', locals:{poi: poi}%>
+</article>
