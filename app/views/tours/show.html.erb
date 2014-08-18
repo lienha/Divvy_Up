@@ -26,15 +26,17 @@
             lng: <%= JSON.parse(l.location, {symbolize_names: true})[:lng] %>,
             title: "<%= l.name %>",
             id: "<%= l.id %>",
-            visible: false
+            visible: false,
+            zIndex: 102
             }
           )
 
           var info<%= l.id %> = new google.maps.InfoWindow();
           var infoLoc<%= l.id %> = new google.maps.LatLng(<%= JSON.parse(l.location, {symbolize_names: true})[:lat] %>,<%= JSON.parse(l.location, {symbolize_names: true})[:lng] %>);
           info<%= l.id %>.setOptions({
-            content: '<img src="<%= l.image %>" id="img<%=l.id%>">',
-            position: infoLoc<%= l.id %>
+            content: '<img src="<%= l.image %>" id="img<%=l.id%>" width="50" height="50">',
+            position: infoLoc<%= l.id %>,
+            zIndex: 102
           })
           info<%= l.id %>.open(map);
           google.maps.event.addListener(info<%= l.id %>, 'domready', function(){
@@ -66,8 +68,9 @@
                   map.addMarker({
                     lat:json[i].geometry.coordinates[1],
                     lng:json[i].geometry.coordinates[0],
-                    infoWindow: {content: 'Station Name: ' + json[i].properties.stationName + ' <br> Available Bikes: ' + json[i].properties.availableBikes + '<br> Available Docks: ' + json[i].properties.availableDocks},
-                    visible: true
+                    infoWindow: {content: 'Station Name: ' + json[i].properties.stationName + ' <br> Available Bikes: ' + json[i].properties.availableBikes + '<br> Available Docks: ' + json[i].properties.availableDocks, zIndex: 1000},
+                    visible: true,
+                    zIndex: 1000
                   });
                 }
                 created_station_ids.push(json[i].properties.id);
