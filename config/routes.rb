@@ -19,7 +19,7 @@ DivvyUp::Application.routes.draw do
   # get '/logout', to: 'sessions#destroy'
 
   root 'tours#index'
-  resources :tours 
+  resources :tours
   resources :pois do
     resources :comments
   end
