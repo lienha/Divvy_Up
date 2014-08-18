@@ -6,18 +6,18 @@ class RecommendationsController < ApplicationController
   end
 
   def create
-    recommendation = Recommendation.new(recommndation_params)
-    recommendation.tour_id = params[:tour_id]
+    binding.pry
+    recommendation = Recommendation.new(recommendation_params)
+    # recommendation.tour_id = params[:tour_id]
     recommendation.user_id = current_user.id
 
     if recommendation.save
-      # @recomendations = Tour.find(params[:tour_id]).recommendations
       redirect_to  "/tours/#{params[:tour_id]}/recommendations"
     end
   end
 
   private
   def recommendation_params
-    params.require(:recommendation).permit(:text)
+    params.require(:recommendation).permit(:text, :tour_id)
   end
 end
