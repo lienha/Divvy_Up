@@ -50,7 +50,7 @@
                                               onBlurContainer: '#map',
                                               openOnEvent: true,
                                               setEvent: 'click',
-                                              template: "<article class='poi_container'><img src='<%=l.image%>'><h1><%= l.name %></h1><br><%= l.description %></article><div class='comment_container'><%= render partial: 'comments/comment', locals:{poi: l}%></div>"
+                                              template: '<article class="poi_container"><img src="<%=l.image%>"><h1><%= l.name %></h1><br><%= l.description %></article><div class="comment_container"><%= escape_javascript(render partial: "comments/form", locals:{poi: l}) %><%= render partial: "comments/comment", locals:{poi: l}%></div>'
                                             });
                 });
         <% end %>
