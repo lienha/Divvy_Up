@@ -39,11 +39,12 @@ Tour.create(name: 'Film Tour', creator_id: admin.id, zoom: 14,
           short_description: "Explore city's famous movie scenes and celebrity hangouts.",
           long_description: "Explore city's famous movie scenes and celebrity frequencings. Start your tour at Union Station, then to The Marina City which was a Local television station WFLD, (FOX Channel 32) had its studios and transmitter for eighteen years until they were bought by Metromedia. WLS-TV (ABC Channel 7) kept its transmitter atop Marina City until the Willis Tower (formerly known as Sears Tower) was completed. Or the Pump Room, a restaurant located in the Public Chicago Hotel in Chicago's Gold Coast area. The restaurant served a number of celebrities who were regular customers and has been written about in books and articles.")
 
-Tour.create(name: 'City Tour', creator_id: admin.id, zoom: 17,
-  center: {lat: 41.8887255, lng: -87.6270584}.to_json)
+# because these tours do not have POI, they crash the app.
+# Tour.create(name: 'City Tour', creator_id: admin.id, zoom: 17,
+#   center: {lat: 41.8887255, lng: -87.6270584}.to_json)
 
-Tour.create(name: 'Grand Tour', creator_id: admin.id, zoom: 17,
-  center: {lat: 41.8887255, lng: -87.6270584}.to_json)
+# Tour.create(name: 'Grand Tour', creator_id: admin.id, zoom: 17,
+#   center: {lat: 41.8887255, lng: -87.6270584}.to_json)
 
 
 tour1 = admin.tours.first
