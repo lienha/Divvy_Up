@@ -53,11 +53,33 @@
                                               template: "<article class='poi_container'><img src='<%=l.image%>'><h1><%= l.name %></h1><br><%= l.description %></article><div class='comment_container'><%= render partial: 'comments/comment', locals:{poi: l}%></div>"
                                             });
                 });
+
+    $.ajax({url:"http://shrouded-beach-2183.herokuapp.com/stations/nearby",
+            data: {lat: <%= JSON.parse(l.location, {symbolize_names: true})[:lat] %>,
+            lon: <%= JSON.parse(l.location, {symbolize_names: true})[:lng] %>},
+            type: "GET", 
+            dataType: "json",
+            success: function(json){
+            var created_station_ids = [];
+              for (var i = json.length - 1; i >= 0; i--) {
+                if (created_station_ids.indexOf(json[i].properties.id) === -1) {
+                  map.addMarker({
+                    lat:json[i].geometry.coordinates[1],
+                    lng:json[i].geometry.coordinates[0],
+                    infoWindow: {content: 'Station Name: ' + json[i].properties.stationName + ' <br> Available Bikes: ' + json[i].properties.availableBikes + '<br> Available Docks: ' + json[i].properties.availableDocks},
+                    visible: true
+                  });
+                }
+                created_station_ids.push(json[i].properties.id);
+              }           
+            } 
+          });
         <% end %>
-
-
       }
     );
+
+            
     </script>
 
     <div id="map"></div>
+
