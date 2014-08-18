@@ -20,16 +20,24 @@ admin = User.create( username: 'admin', email: 'admin@gmail.com', password: 'pas
 
 
 Tour.create(name: 'Architecture Tour', creator_id: admin.id, zoom: 17,
-  center: {lat: 41.8887255, lng: -87.6270584}.to_json)
+          center: {lat: 41.8887255, lng: -87.6270584}.to_json,
+          short_description: "Get great views of Chicago architecture and outdoor art installations in this tour.",
+          long_description: "Chicago is world-famous for its incredible, recognizable skyline. Get great views of Chicago architecture with Tribune Tower which won the most beautiful and distinctive office building in the world in 1922, Wrigley Building is one of the original business addresses, the luxurious Trump Tower, and Marina City with two 60-story towers which was the biggest ever built in concrete and its shape was in contrast with the contemporary architectural concepts of straight lines and cubical apartment buildings. ")
 
-Tour.create(name: 'Sculpture Tour', creator_id: admin.id, zoom: 17,
-  center: {lat: 41.8887255, lng: -87.6270584}.to_json)
+Tour.create(name: 'Sculpture Tour', creator_id: admin.id, zoom: 15,
+          center: {lat: 41.8887255, lng: -87.6270584}.to_json,
+          short_description: "Visit the endless collections at the Art Institute and many public art sculptures by the world's most famous modern artists like Picasso and Calder.",
+          long_description: "From Jean Dubuffet's Monument With Standing Beast to Anish Kapoor's Cloud Gate, this  tour winds through down town Chicago, passing some of the city's landmark buildings and stopping at monumental sculptures commissioned from some of the most important artists of their time. There are endless collections at the Art Institute and many overlook the world-class collection of public art on display throughout Chicago's commercial center. The Loop is a veritable open air museum of sculptures by the world's most famous modern artists (Picasso, Calder, Miro, Lewitt, etc.), and it's all, of course, free. These monumental sculptures are a both part of Chicago's distinctive character and a major source of civic pride. Take this tour in the morning or early afternoon, and stop at one of the many coffee houses or cafes along the way for a morning pick-me-up or mid-day meal.")
 
 Tour.create(name: 'Crime and Mob Tour', creator_id: admin.id, zoom: 15,
-  center: {lat: 41.92517580576991, lng: -87.6439905166626}.to_json)
+          center: {lat: 41.92517580576991, lng: -87.6439905166626}.to_json,
+          short_description: "Explore the city’s most famous crime scenes.",
+          long_description: "Chicago is full of crime scenes and historical landmarks made famous by our city’s own mobs and gangsters. In this tour, explore the city’s most famous crime scenes as you investigate stories about Al Capone, The Untouchables, the Chicago Mob and their and mischievous activities.")
 
-Tour.create(name: 'Film Tour', creator_id: admin.id, zoom: 17,
-  center: {lat: 41.8887255, lng: -87.6270584}.to_json)
+Tour.create(name: 'Film Tour', creator_id: admin.id, zoom: 14,
+          center: {lat: 41.8887255, lng: -87.6270584}.to_json,
+          short_description: "Explore city's famous movie scenes and celebrity hangouts.",
+          long_description: "Explore city's famous movie scenes and celebrity frequencings. Start your tour at Union Station, then to The Marina City which was a Local television station WFLD, (FOX Channel 32) had its studios and transmitter for eighteen years until they were bought by Metromedia. WLS-TV (ABC Channel 7) kept its transmitter atop Marina City until the Willis Tower (formerly known as Sears Tower) was completed. Or the Pump Room, a restaurant located in the Public Chicago Hotel in Chicago's Gold Coast area. The restaurant served a number of celebrities who were regular customers and has been written about in books and articles.")
 
 Tour.create(name: 'City Tour', creator_id: admin.id, zoom: 17,
   center: {lat: 41.8887255, lng: -87.6270584}.to_json)
@@ -68,8 +76,6 @@ Poi.create( name: 'House of Blues', tour_id: tour1.id,
           description: "Top rock, blues & more play at this music club, beloved for its Sunday gospel brunches.",
           image: "/assets/houseofblues.jpg",
           location: {lat: 41.888233, lng: -87.62913}.to_json)
-
-
 
 Poi.create( name: 'Green Mill Jazz Club', tour_id: tour2.id,
           description: "Once a favorite of Al Capone His favorite booth is still in the establishment located directly west of the short end of the bar. Capone and his men would sit here because it afforded clear views of both the front and back entrances to the establishment. It is rumored that there is still an access hatch to the tunnels located directly behind the long end of the bar that leads underneath the street to an adjacent building; this is how Capone was able to elude the authorities or the quasi detectives when he visited the Green Mill.",
