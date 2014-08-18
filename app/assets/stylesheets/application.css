@@ -21,8 +21,9 @@ html, body{
 #map{
   overflow: hidden;
   display: block;
+  float: left;
   width: 95%;
-  max-width: 960px;
+  max-width: 70%;
   height: 80vh;
   margin: 25px;
   -moz-box-shadow: 0px 5px 20px #ccc;
@@ -99,11 +100,16 @@ ul.tour_list a:hover {
   color: #DBDA89;
 }
 
+ul.tour_list p {
+  color: white;
+}
+
 .intro {
   margin: 40px auto;
   background-color: rgba(0,0,0,0.5);
-  width: 20%;
-  max-width: 240px;
+  width: 90%;
+  max-width: 600px;
+  text-align: center;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px; /* future proofing */
@@ -134,4 +140,9 @@ div.avgrund-popin.popup{
   margin-bottom: 20px;
   padding-bottom: 40px;
   border-bottom: 2px solid #ccc;
+}
+
+#side {
+  display: block;
+  margin-right: 1%;
 }
