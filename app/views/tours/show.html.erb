@@ -149,10 +149,8 @@
   
 
 <div id="side">
-  <% Tour.all.each do |tour| %>
-    <h2><%= tour.name %></h2>
-    <%= tour.long_description %>
-  <%end%>
+  <h2><%= @tour.name %></h2>
+  <%= @tour.long_description %>
 </div>
 
 
