@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20140818135832) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "short_description"
-    t.string   "long_description"
+    t.text     "long_description"
   end
 
   create_table "users", force: true do |t|
