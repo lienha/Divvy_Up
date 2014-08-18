@@ -33,6 +33,10 @@ html, body{
   height:500px;
 }
 
+#map img {
+max-width: none;
+}
+
 .container {
   width:100%; 
   min-height: 100%;
