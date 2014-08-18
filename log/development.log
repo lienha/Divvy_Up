@@ -5521,3 +5521,1407 @@ Started GET "/assets/avgrund.css?body=1" for 127.0.0.1 at 2014-08-18 17:30:41 -0
 
 
 Started GET "/assets/gmaps.js?body=1" for 127.0.0.1 at 2014-08-18 17:30:41 -0500
+
+
+Started GET "/tours/1" for 127.0.0.1 at 2014-08-18 17:36:28 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ToursController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTour Load (0.6ms)[0m  SELECT "tours".* FROM "tours" WHERE "tours"."id" = 1 LIMIT 1
+  [1m[36mTour Load (1.6ms)[0m  [1mSELECT "tours".* FROM "tours" WHERE "tours"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mPoi Load (3.9ms)[0m  SELECT "pois".* FROM "pois" WHERE "pois"."tour_id" = $1  [["tour_id", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered comments/_form.html.erb (13.4ms)
+  [1m[35mComment Exists (0.9ms)[0m  SELECT 1 AS one FROM "comments" WHERE "comments"."poi_id" = $1 LIMIT 1  [["poi_id", 1]]
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."poi_id" = $1[0m  [["poi_id", 1]]
+  [1m[35mUser Load (2.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered comments/_comment.html.erb (43.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered comments/_form.html.erb (1.2ms)
+  [1m[36mComment Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "comments" WHERE "comments"."poi_id" = $1 LIMIT 1[0m  [["poi_id", 2]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."poi_id" = $1  [["poi_id", 2]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 6]]
+  Rendered comments/_comment.html.erb (9.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered comments/_form.html.erb (0.7ms)
+  [1m[35mComment Exists (0.4ms)[0m  SELECT 1 AS one FROM "comments" WHERE "comments"."poi_id" = $1 LIMIT 1  [["poi_id", 3]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."poi_id" = $1[0m  [["poi_id", 3]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 7]]
+  Rendered comments/_comment.html.erb (4.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered comments/_form.html.erb (1.7ms)
+  [1m[35mComment Exists (0.4ms)[0m  SELECT 1 AS one FROM "comments" WHERE "comments"."poi_id" = $1 LIMIT 1  [["poi_id", 4]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."poi_id" = $1[0m  [["poi_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered comments/_comment.html.erb (3.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered comments/_form.html.erb (0.7ms)
+  [1m[36mComment Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "comments" WHERE "comments"."poi_id" = $1 LIMIT 1[0m  [["poi_id", 5]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."poi_id" = $1  [["poi_id", 5]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 8]]
+  Rendered comments/_comment.html.erb (4.6ms)
+  [1m[36mTour Load (0.6ms)[0m  [1mSELECT "tours".* FROM "tours"[0m
+  Rendered tours/show.html.erb within layouts/application (109.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "tours".* FROM "tours"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered partials/_nav.html.erb (3.0ms)
+Completed 200 OK in 515ms (Views: 422.0ms | ActiveRecord: 31.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/avgrund.css?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/foundation-icons.css?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/jquery.pageslide.css?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/pois.css?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/how_it_works.css?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/foundation/foundation.abide.js?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/foundation/foundation.accordion.js?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/foundation/foundation.alert.js?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/foundation/foundation.interchange.js?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/foundation/foundation.offcanvas.js?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/foundation/foundation.slider.js?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/foundation/foundation.tab.js?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/foundation/foundation.tooltip.js?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/foundation/foundation.equalizer.js?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/foundation.js?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/gmaps.js?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/how_it_works.js?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/jquery.avgrund.min.js?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/jquery.pageslide.min.js?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/jquery.vide.min.js?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/pois.js?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-08-18 17:36:29 -0500
+
+
+Started GET "/assets/tribunetower2.jpg" for 127.0.0.1 at 2014-08-18 17:36:30 -0500
+
+
+Started GET "/assets/wrigley.jpg" for 127.0.0.1 at 2014-08-18 17:36:30 -0500
+
+
+Started GET "/assets/trump_tower.jpg" for 127.0.0.1 at 2014-08-18 17:36:30 -0500
+
+
+Started GET "/assets/houseofblues.jpg" for 127.0.0.1 at 2014-08-18 17:36:30 -0500
+
+
+Started GET "/assets/marina_city.jpg" for 127.0.0.1 at 2014-08-18 17:36:30 -0500
+
+
+Started GET "/assets/map-icon-inservice.png" for 127.0.0.1 at 2014-08-18 17:36:30 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-18 17:36:46 -0500
+Processing by ToursController#index as HTML
+  [1m[35mTour Load (0.8ms)[0m  SELECT "tours".* FROM "tours"
+  Rendered tours/index.html.erb within layouts/application (3.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "tours".* FROM "tours"[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered partials/_nav.html.erb (4.9ms)
+Completed 200 OK in 41ms (Views: 38.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/tours/1" for 127.0.0.1 at 2014-08-18 17:36:48 -0500
+Processing by ToursController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTour Load (1.5ms)[0m  [1mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 1 LIMIT 1[0m
+  [1m[35mTour Load (0.7ms)[0m  SELECT "tours".* FROM "tours" WHERE "tours"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mPoi Load (0.5ms)[0m  [1mSELECT "pois".* FROM "pois" WHERE "pois"."tour_id" = $1[0m  [["tour_id", 1]]
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered comments/_form.html.erb (4.2ms)
+  [1m[36mComment Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "comments" WHERE "comments"."poi_id" = $1 LIMIT 1[0m  [["poi_id", 1]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."poi_id" = $1  [["poi_id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered comments/_comment.html.erb (8.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered comments/_form.html.erb (0.9ms)
+  [1m[35mComment Exists (0.4ms)[0m  SELECT 1 AS one FROM "comments" WHERE "comments"."poi_id" = $1 LIMIT 1  [["poi_id", 2]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."poi_id" = $1[0m  [["poi_id", 2]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  Rendered comments/_comment.html.erb (6.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered comments/_form.html.erb (0.6ms)
+  [1m[36mComment Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "comments" WHERE "comments"."poi_id" = $1 LIMIT 1[0m  [["poi_id", 3]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."poi_id" = $1  [["poi_id", 3]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  Rendered comments/_comment.html.erb (5.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered comments/_form.html.erb (0.6ms)
+  [1m[36mComment Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "comments" WHERE "comments"."poi_id" = $1 LIMIT 1[0m  [["poi_id", 4]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."poi_id" = $1  [["poi_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered comments/_comment.html.erb (3.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered comments/_form.html.erb (0.6ms)
+  [1m[35mComment Exists (0.3ms)[0m  SELECT 1 AS one FROM "comments" WHERE "comments"."poi_id" = $1 LIMIT 1  [["poi_id", 5]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."poi_id" = $1[0m  [["poi_id", 5]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 9]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  Rendered comments/_comment.html.erb (3.9ms)
+  [1m[35mTour Load (0.3ms)[0m  SELECT "tours".* FROM "tours"
+  Rendered tours/show.html.erb within layouts/application (53.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "tours".* FROM "tours"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered partials/_nav.html.erb (1.6ms)
+Completed 200 OK in 83ms (Views: 67.6ms | ActiveRecord: 10.3ms)
+
+
+Started GET "/assets/avgrund.css?body=1" for 127.0.0.1 at 2014-08-18 17:36:48 -0500
+
+
+Started GET "/assets/gmaps.js?body=1" for 127.0.0.1 at 2014-08-18 17:36:48 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-18 17:39:36 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ToursController#index as HTML
+  [1m[35mTour Load (1.2ms)[0m  SELECT "tours".* FROM "tours"
+  Rendered tours/index.html.erb within layouts/application (16.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "tours".* FROM "tours"[0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered partials/_nav.html.erb (17.4ms)
+Completed 200 OK in 355ms (Views: 321.3ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/avgrund.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/foundation-icons.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/how_it_works.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/jquery.pageslide.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/pois.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/foundation/foundation.abide.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/foundation/foundation.accordion.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/foundation/foundation.alert.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/foundation/foundation.interchange.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/foundation/foundation.offcanvas.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/foundation/foundation.slider.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/foundation/foundation.tab.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/foundation/foundation.tooltip.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/foundation/foundation.equalizer.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/foundation.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/gmaps.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/how_it_works.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/jquery.avgrund.min.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/jquery.pageslide.min.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/jquery.vide.min.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/pois.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+
+Started GET "/assets/bike.jpg" for 127.0.0.1 at 2014-08-18 17:39:37 -0500
+
+ActionController::RoutingError (No route matches [GET] "/assets/bike.jpg"):
+  actionpack (4.0.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.0.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.0.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.0.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.8) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.8) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.8) lib/rails/engine.rb:511:in `call'
+  railties (4.0.8) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.6ms)
+  Rendered /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.1ms)
+  Rendered /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/routes/_table.html.erb (9.4ms)
+  Rendered /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (55.7ms)
+
+
+Started GET "/assets/bike.png" for 127.0.0.1 at 2014-08-18 17:39:38 -0500
+
+ActionController::RoutingError (No route matches [GET] "/assets/bike.png"):
+  actionpack (4.0.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.0.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.0.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.0.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.8) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.8) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.8) lib/rails/engine.rb:511:in `call'
+  railties (4.0.8) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.2ms)
+  Rendered /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (30.9ms)
+
+
+Started GET "/assets/bike.gif" for 127.0.0.1 at 2014-08-18 17:39:38 -0500
+
+ActionController::RoutingError (No route matches [GET] "/assets/bike.gif"):
+  actionpack (4.0.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.0.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.0.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.0.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.8) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.8) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.8) lib/rails/engine.rb:511:in `call'
+  railties (4.0.8) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.3ms)
+  Rendered /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (36.4ms)
+
+
+Started GET "/assets/bike.mp4" for 127.0.0.1 at 2014-08-18 17:39:38 -0500
+
+
+Started GET "/assets/bike.mp4" for 127.0.0.1 at 2014-08-18 17:39:38 -0500
+
+
+Started GET "/assets/bike.mp4" for 127.0.0.1 at 2014-08-18 17:39:38 -0500
+
+
+Started GET "/tours/1" for 127.0.0.1 at 2014-08-18 17:39:41 -0500
+Processing by ToursController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTour Load (1.1ms)[0m  [1mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 1 LIMIT 1[0m
+  [1m[35mTour Load (1.1ms)[0m  SELECT "tours".* FROM "tours" WHERE "tours"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mPoi Load (2.7ms)[0m  [1mSELECT "pois".* FROM "pois" WHERE "pois"."tour_id" = $1[0m  [["tour_id", 1]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered comments/_form.html.erb (2.3ms)
+  [1m[36mComment Exists (0.8ms)[0m  [1mSELECT 1 AS one FROM "comments" WHERE "comments"."poi_id" = $1 LIMIT 1[0m  [["poi_id", 1]]
+  [1m[35mComment Load (0.8ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."poi_id" = $1  [["poi_id", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered comments/_comment.html.erb (74.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered comments/_form.html.erb (0.8ms)
+  [1m[35mComment Exists (0.4ms)[0m  SELECT 1 AS one FROM "comments" WHERE "comments"."poi_id" = $1 LIMIT 1  [["poi_id", 2]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."poi_id" = $1[0m  [["poi_id", 2]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  Rendered comments/_comment.html.erb (7.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered comments/_form.html.erb (1.0ms)
+  [1m[36mComment Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "comments" WHERE "comments"."poi_id" = $1 LIMIT 1[0m  [["poi_id", 3]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."poi_id" = $1  [["poi_id", 3]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  Rendered comments/_comment.html.erb (5.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered comments/_form.html.erb (0.6ms)
+  [1m[36mComment Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "comments" WHERE "comments"."poi_id" = $1 LIMIT 1[0m  [["poi_id", 4]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."poi_id" = $1  [["poi_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered comments/_comment.html.erb (3.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered comments/_form.html.erb (0.5ms)
+  [1m[35mComment Exists (0.5ms)[0m  SELECT 1 AS one FROM "comments" WHERE "comments"."poi_id" = $1 LIMIT 1  [["poi_id", 5]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."poi_id" = $1[0m  [["poi_id", 5]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 9]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  Rendered comments/_comment.html.erb (4.4ms)
+  Rendered tours/show.html.erb within layouts/application (115.3ms)
+  [1m[35mTour Load (0.5ms)[0m  SELECT "tours".* FROM "tours"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered partials/_nav.html.erb (3.8ms)
+Completed 200 OK in 191ms (Views: 128.4ms | ActiveRecord: 19.3ms)
+
+
+Started GET "/assets/avgrund.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:41 -0500
+
+
+Started GET "/assets/gmaps.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:41 -0500
+
+
+Started GET "/tours/1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+Processing by ToursController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTour Load (0.8ms)[0m  SELECT "tours".* FROM "tours" WHERE "tours"."id" = 1 LIMIT 1
+  [1m[36mTour Load (0.5ms)[0m  [1mSELECT "tours".* FROM "tours" WHERE "tours"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mPoi Load (0.6ms)[0m  SELECT "pois".* FROM "pois" WHERE "pois"."tour_id" = $1  [["tour_id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered comments/_form.html.erb (2.5ms)
+  [1m[35mComment Exists (0.4ms)[0m  SELECT 1 AS one FROM "comments" WHERE "comments"."poi_id" = $1 LIMIT 1  [["poi_id", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."poi_id" = $1[0m  [["poi_id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered comments/_comment.html.erb (5.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered comments/_form.html.erb (0.8ms)
+  [1m[36mComment Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "comments" WHERE "comments"."poi_id" = $1 LIMIT 1[0m  [["poi_id", 2]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."poi_id" = $1  [["poi_id", 2]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 6]]
+  Rendered comments/_comment.html.erb (5.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered comments/_form.html.erb (0.8ms)
+  [1m[35mComment Exists (0.7ms)[0m  SELECT 1 AS one FROM "comments" WHERE "comments"."poi_id" = $1 LIMIT 1  [["poi_id", 3]]
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."poi_id" = $1[0m  [["poi_id", 3]]
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 7]]
+  Rendered comments/_comment.html.erb (7.4ms)
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered comments/_form.html.erb (1.0ms)
+  [1m[35mComment Exists (0.3ms)[0m  SELECT 1 AS one FROM "comments" WHERE "comments"."poi_id" = $1 LIMIT 1  [["poi_id", 4]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."poi_id" = $1[0m  [["poi_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered comments/_comment.html.erb (3.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered comments/_form.html.erb (0.5ms)
+  [1m[36mComment Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "comments" WHERE "comments"."poi_id" = $1 LIMIT 1[0m  [["poi_id", 5]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."poi_id" = $1  [["poi_id", 5]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 8]]
+  Rendered comments/_comment.html.erb (3.8ms)
+  Rendered tours/show.html.erb within layouts/application (43.0ms)
+  [1m[36mTour Load (0.5ms)[0m  [1mSELECT "tours".* FROM "tours"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered partials/_nav.html.erb (2.3ms)
+Completed 200 OK in 70ms (Views: 56.0ms | ActiveRecord: 9.6ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/avgrund.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/foundation-icons.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/how_it_works.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/jquery.pageslide.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/pois.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/foundation/foundation.abide.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/foundation/foundation.accordion.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/foundation/foundation.alert.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/foundation/foundation.interchange.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/foundation/foundation.offcanvas.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/foundation/foundation.slider.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/foundation/foundation.tab.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/foundation/foundation.tooltip.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/foundation/foundation.equalizer.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/foundation.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/gmaps.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/how_it_works.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/jquery.avgrund.min.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/jquery.pageslide.min.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/jquery.vide.min.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/pois.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:49 -0500
+
+
+Started GET "/assets/tribunetower2.jpg" for 127.0.0.1 at 2014-08-18 17:39:50 -0500
+
+
+Started GET "/assets/marina_city.jpg" for 127.0.0.1 at 2014-08-18 17:39:50 -0500
+
+
+Started GET "/assets/houseofblues.jpg" for 127.0.0.1 at 2014-08-18 17:39:50 -0500
+
+
+Started GET "/assets/wrigley.jpg" for 127.0.0.1 at 2014-08-18 17:39:50 -0500
+
+
+Started GET "/assets/trump_tower.jpg" for 127.0.0.1 at 2014-08-18 17:39:50 -0500
+
+
+Started GET "/assets/map-icon-inservice.png" for 127.0.0.1 at 2014-08-18 17:39:50 -0500
+
+
+Started GET "/tours/2" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+Processing by ToursController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTour Load (0.6ms)[0m  [1mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 2 LIMIT 1[0m
+  [1m[35mTour Load (0.4ms)[0m  SELECT "tours".* FROM "tours" WHERE "tours"."id" = $1 LIMIT 1  [["id", "2"]]
+  [1m[36mPoi Load (0.4ms)[0m  [1mSELECT "pois".* FROM "pois" WHERE "pois"."tour_id" = $1[0m  [["tour_id", 2]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered comments/_form.html.erb (1.8ms)
+  [1m[36mComment Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "comments" WHERE "comments"."poi_id" = $1 LIMIT 1[0m  [["poi_id", 13]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."poi_id" = $1  [["poi_id", 13]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered comments/_comment.html.erb (4.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered comments/_form.html.erb (0.7ms)
+  [1m[36mComment Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "comments" WHERE "comments"."poi_id" = $1 LIMIT 1[0m  [["poi_id", 14]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."poi_id" = $1  [["poi_id", 14]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered comments/_comment.html.erb (3.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered comments/_form.html.erb (1.0ms)
+  [1m[35mComment Exists (0.4ms)[0m  SELECT 1 AS one FROM "comments" WHERE "comments"."poi_id" = $1 LIMIT 1  [["poi_id", 15]]
+  Rendered comments/_comment.html.erb (1.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered comments/_form.html.erb (0.7ms)
+  [1m[35mComment Exists (0.5ms)[0m  SELECT 1 AS one FROM "comments" WHERE "comments"."poi_id" = $1 LIMIT 1  [["poi_id", 16]]
+  Rendered comments/_comment.html.erb (2.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered comments/_form.html.erb (1.0ms)
+  [1m[35mComment Exists (0.3ms)[0m  SELECT 1 AS one FROM "comments" WHERE "comments"."poi_id" = $1 LIMIT 1  [["poi_id", 18]]
+  Rendered comments/_comment.html.erb (1.6ms)
+  Rendered tours/show.html.erb within layouts/application (29.5ms)
+  [1m[36mTour Load (0.5ms)[0m  [1mSELECT "tours".* FROM "tours"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered partials/_nav.html.erb (2.1ms)
+Completed 200 OK in 57ms (Views: 47.5ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/avgrund.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/foundation-icons.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/jquery.pageslide.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/how_it_works.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/pois.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/foundation/foundation.abide.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/foundation/foundation.accordion.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/foundation/foundation.alert.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/foundation/foundation.interchange.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/foundation/foundation.offcanvas.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/foundation/foundation.slider.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/foundation/foundation.tab.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/foundation/foundation.tooltip.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/foundation/foundation.equalizer.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/foundation.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/gmaps.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/how_it_works.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/jquery.avgrund.min.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/jquery.pageslide.min.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/jquery.vide.min.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:53 -0500
+
+
+Started GET "/assets/pois.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:54 -0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:54 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:54 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:54 -0500
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:54 -0500
+
+
+Started GET "/assets/standingbeast.jpg" for 127.0.0.1 at 2014-08-18 17:39:54 -0500
+
+
+Started GET "/assets/picasso.jpg" for 127.0.0.1 at 2014-08-18 17:39:54 -0500
+
+
+Started GET "/assets/dawnshadows.jpg" for 127.0.0.1 at 2014-08-18 17:39:54 -0500
+
+
+Started GET "/assets/flamingo.jpg" for 127.0.0.1 at 2014-08-18 17:39:54 -0500
+
+
+Started GET "/assets/lion.jpg" for 127.0.0.1 at 2014-08-18 17:39:54 -0500
+
+
+Started GET "/assets/map-icon-inservice.png" for 127.0.0.1 at 2014-08-18 17:39:54 -0500
+
+
+Started GET "/tours/3" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+Processing by ToursController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mTour Load (0.7ms)[0m  [1mSELECT "tours".* FROM "tours" WHERE "tours"."id" = 3 LIMIT 1[0m
+  [1m[35mTour Load (0.6ms)[0m  SELECT "tours".* FROM "tours" WHERE "tours"."id" = $1 LIMIT 1  [["id", "3"]]
+  [1m[36mPoi Load (0.4ms)[0m  [1mSELECT "pois".* FROM "pois" WHERE "pois"."tour_id" = $1[0m  [["tour_id", 3]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered comments/_form.html.erb (1.4ms)
+  [1m[36mComment Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "comments" WHERE "comments"."poi_id" = $1 LIMIT 1[0m  [["poi_id", 6]]
+  Rendered comments/_comment.html.erb (1.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered comments/_form.html.erb (0.8ms)
+  [1m[36mComment Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "comments" WHERE "comments"."poi_id" = $1 LIMIT 1[0m  [["poi_id", 7]]
+  [1m[35mComment Load (0.4ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."poi_id" = $1  [["poi_id", 7]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered comments/_comment.html.erb (4.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered comments/_form.html.erb (0.8ms)
+  [1m[35mComment Exists (0.3ms)[0m  SELECT 1 AS one FROM "comments" WHERE "comments"."poi_id" = $1 LIMIT 1  [["poi_id", 8]]
+  Rendered comments/_comment.html.erb (1.3ms)
+  Rendered tours/show.html.erb within layouts/application (16.5ms)
+  [1m[36mTour Load (0.5ms)[0m  [1mSELECT "tours".* FROM "tours"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered partials/_nav.html.erb (2.4ms)
+Completed 200 OK in 122ms (Views: 112.6ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/avgrund.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/how_it_works.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/foundation-icons.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/jquery.pageslide.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/pois.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/foundation/foundation.abide.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/foundation/foundation.accordion.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/foundation/foundation.alert.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/foundation/foundation.interchange.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/foundation/foundation.offcanvas.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/foundation/foundation.slider.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/foundation/foundation.tab.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/foundation/foundation.tooltip.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/foundation/foundation.equalizer.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/foundation.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/gmaps.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/how_it_works.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/jquery.avgrund.min.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/jquery.pageslide.min.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/jquery.vide.min.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/pois.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-08-18 17:39:58 -0500
+
+
+Started GET "/assets/green_mill.jpg" for 127.0.0.1 at 2014-08-18 17:39:59 -0500
+
+
+Started GET "/assets/johnbarleycorn.jpg" for 127.0.0.1 at 2014-08-18 17:39:59 -0500
+
+
+Started GET "/assets/victorygarden.jpg" for 127.0.0.1 at 2014-08-18 17:39:59 -0500
+
+
+Started GET "/assets/map-icon-inservice.png" for 127.0.0.1 at 2014-08-18 17:39:59 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-18 17:40:20 -0500
+Processing by ToursController#index as HTML
+  [1m[36mTour Load (0.8ms)[0m  [1mSELECT "tours".* FROM "tours"[0m
+  Rendered tours/index.html.erb within layouts/application (3.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "tours".* FROM "tours"
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered partials/_nav.html.erb (2.6ms)
+Completed 200 OK in 31ms (Views: 28.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-08-18 17:40:20 -0500
+
+
+Started GET "/assets/avgrund.css?body=1" for 127.0.0.1 at 2014-08-18 17:40:20 -0500
+
+
+Started GET "/assets/how_it_works.css?body=1" for 127.0.0.1 at 2014-08-18 17:40:20 -0500
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2014-08-18 17:40:20 -0500
+
+
+Started GET "/assets/foundation-icons.css?body=1" for 127.0.0.1 at 2014-08-18 17:40:20 -0500
+
+
+Started GET "/assets/jquery.pageslide.css?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/pois.css?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/foundation/foundation.abide.js?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/foundation/foundation.accordion.js?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/foundation/foundation.alert.js?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/foundation/foundation.interchange.js?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/foundation/foundation.offcanvas.js?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/foundation/foundation.slider.js?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/foundation/foundation.tab.js?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/foundation/foundation.tooltip.js?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/foundation/foundation.equalizer.js?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/foundation.js?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/gmaps.js?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/how_it_works.js?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/jquery.avgrund.min.js?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/jquery.pageslide.min.js?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/jquery.vide.min.js?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/pois.js?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/bike.png" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+ActionController::RoutingError (No route matches [GET] "/assets/bike.png"):
+  actionpack (4.0.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.0.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.0.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.0.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.8) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.8) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.8) lib/rails/engine.rb:511:in `call'
+  railties (4.0.8) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.6ms)
+  Rendered /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.2ms)
+  Rendered /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (41.6ms)
+
+
+Started GET "/assets/bike.gif" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+ActionController::RoutingError (No route matches [GET] "/assets/bike.gif"):
+  actionpack (4.0.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.0.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.0.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.0.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.8) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.8) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.8) lib/rails/engine.rb:511:in `call'
+  railties (4.0.8) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.0ms)
+  Rendered /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (40.6ms)
+
+
+Started GET "/assets/bike.mp4" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/bike.jpg" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+ActionController::RoutingError (No route matches [GET] "/assets/bike.jpg"):
+  actionpack (4.0.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.0.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.0.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.0.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.8) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.8) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.8) lib/rails/engine.rb:511:in `call'
+  railties (4.0.8) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.0ms)
+  Rendered /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendered /Users/Lienha/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (34.3ms)
+
+
+Started GET "/assets/bike.mp4" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/assets/bike.mp4" for 127.0.0.1 at 2014-08-18 17:40:21 -0500
+
+
+Started GET "/tours/2" for 127.0.0.1 at 2014-08-18 17:40:23 -0500
+Processing by ToursController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTour Load (0.7ms)[0m  SELECT "tours".* FROM "tours" WHERE "tours"."id" = 2 LIMIT 1
+  [1m[36mTour Load (0.5ms)[0m  [1mSELECT "tours".* FROM "tours" WHERE "tours"."id" = $1 LIMIT 1[0m  [["id", "2"]]
+  [1m[35mPoi Load (0.4ms)[0m  SELECT "pois".* FROM "pois" WHERE "pois"."tour_id" = $1  [["tour_id", 2]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered comments/_form.html.erb (2.2ms)
+  [1m[35mComment Exists (0.6ms)[0m  SELECT 1 AS one FROM "comments" WHERE "comments"."poi_id" = $1 LIMIT 1  [["poi_id", 13]]
+  [1m[36mComment Load (0.5ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."poi_id" = $1[0m  [["poi_id", 13]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered comments/_comment.html.erb (7.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered comments/_form.html.erb (0.8ms)
+  [1m[35mComment Exists (3.2ms)[0m  SELECT 1 AS one FROM "comments" WHERE "comments"."poi_id" = $1 LIMIT 1  [["poi_id", 14]]
+  [1m[36mComment Load (0.5ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."poi_id" = $1[0m  [["poi_id", 14]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered comments/_comment.html.erb (9.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered comments/_form.html.erb (1.2ms)
+  [1m[36mComment Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "comments" WHERE "comments"."poi_id" = $1 LIMIT 1[0m  [["poi_id", 15]]
+  Rendered comments/_comment.html.erb (1.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered comments/_form.html.erb (0.7ms)
+  [1m[36mComment Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "comments" WHERE "comments"."poi_id" = $1 LIMIT 1[0m  [["poi_id", 16]]
+  Rendered comments/_comment.html.erb (1.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered comments/_form.html.erb (0.7ms)
+  [1m[36mComment Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "comments" WHERE "comments"."poi_id" = $1 LIMIT 1[0m  [["poi_id", 18]]
+  Rendered comments/_comment.html.erb (1.2ms)
+  Rendered tours/show.html.erb within layouts/application (41.2ms)
+  [1m[35mTour Load (0.5ms)[0m  SELECT "tours".* FROM "tours"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered partials/_nav.html.erb (2.6ms)
+Completed 200 OK in 75ms (Views: 59.9ms | ActiveRecord: 10.2ms)
+
+
+Started GET "/assets/avgrund.css?body=1" for 127.0.0.1 at 2014-08-18 17:40:23 -0500
+
+
+Started GET "/assets/gmaps.js?body=1" for 127.0.0.1 at 2014-08-18 17:40:23 -0500
