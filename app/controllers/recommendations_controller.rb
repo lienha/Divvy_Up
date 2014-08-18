@@ -20,4 +20,4 @@ class RecommendationsController < ApplicationController
   def recommendation_params
     params.require(:recommendation).permit(:text, :tour_id)
   end
-end
+end 
