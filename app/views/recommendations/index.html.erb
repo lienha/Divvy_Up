@@ -1,0 +1,29 @@
+<div class="form_container">
+<h1>Recommended Stops for the <%= @tour.name %></h1>
+
+<% if @tour.recommendations.any? %>
+  <div class="row">
+    <% @tour.recommendations.each do |r| %>
+      <article class="comment">
+        <%= r.text.gsub(/\n+/, "<br/>") %><br>
+        <small><%= r.user.username %> <%= r.created_at %></small>
+      </article>
+    <% end %>
+  </div>
+<% end %>
+
+<% if current_user %>
+  <div class="row">
+    <div class="small-9 columns">
+      let them fill in a form here for a new recommendation
+    </div>
+  </div>
+<% else %>
+  <div class="row">
+    <article class="recommendation">
+      To make a recommendation <%= link_to 'signin' %> or <%= link_to 'signup' %>.
+    </article>
+  </div>
+<% end %>
+
+</div>

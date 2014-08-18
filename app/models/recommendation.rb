@@ -1,4 +1,4 @@
-class Recommendations < ActiveRecord::Base
+class Recommendation < ActiveRecord::Base
   belongs_to :tour
   belongs_to :user  
 
