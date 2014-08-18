@@ -32,21 +32,17 @@ html, body{
 #map.large{
   height:500px;
 }
-<<<<<<< HEAD
+
 #map img {
 max-width: none;
 }
-img[src="http://maps.gstatic.com/mapfiles/api-3/images/mapcnt3.png"] {
-    display: none;
-}
-=======
 
 .container {
-  width:100%; 
-  min-height: 700px;
+  position: absolute;
+  width:100%;
+  min-height: 100%;
 }
 
->>>>>>> 09ed25bc0f99d1a95c77471ff80109cf6428dd81
 .overlay{
   display:block;
   text-align:center;
