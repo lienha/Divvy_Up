@@ -9,8 +9,8 @@
     </ul>
 
     <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="right">
+      <!-- Left Nav Section -->
+      <ul class="left">
         <li class="has-dropdown">
           <a href="#">Tour</a>
             <ul class="dropdown">
@@ -22,8 +22,8 @@
         <li class="item"><%= link_to "How It Works", howitworks_path, method: "get" %></li>
       </ul>
 
-      <!-- Left Nav Section -->
-      <ul class="left">
+      <!-- Right Nav Section -->
+      <ul class="right">
         <% if signed_in? %>
           <li>
             <%= link_to "Sign out", signout_path, method: "delete" %>
