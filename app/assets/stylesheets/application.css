@@ -22,8 +22,9 @@ html, body{
   overflow: hidden;
   display: block;
   width: 95%;
+  max-width: 960px;
   height: 80vh;
-  margin: 25px auto;
+  margin: 25px;
   -moz-box-shadow: 0px 5px 20px #ccc;
   -webkit-box-shadow: 0px 5px 20px #ccc;
   box-shadow: 0px 5px 20px #ccc;
@@ -31,12 +32,21 @@ html, body{
 #map.large{
   height:500px;
 }
+<<<<<<< HEAD
 #map img {
 max-width: none;
 }
 img[src="http://maps.gstatic.com/mapfiles/api-3/images/mapcnt3.png"] {
     display: none;
 }
+=======
+
+.container {
+  width:100%; 
+  min-height: 700px;
+}
+
+>>>>>>> 09ed25bc0f99d1a95c77471ff80109cf6428dd81
 .overlay{
   display:block;
   text-align:center;
