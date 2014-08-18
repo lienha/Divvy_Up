@@ -12,8 +12,8 @@ describe Comment do
       @comment.text = "12"
       expect(@comment.save).to be false
     end
-    it 'be less than 300' do
-      @comment.text = "x" * 301
+    it 'be less than 800' do
+      @comment.text = "x" * 801
       expect(@comment.save).to be false
     end
   end
