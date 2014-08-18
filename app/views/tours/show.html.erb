@@ -26,10 +26,21 @@
             lng: <%= JSON.parse(l.location, {symbolize_names: true})[:lng] %>,
             title: "<%= l.name %>",
             id: "<%= l.id %>",
-            visible: false,
-            zIndex: 102
+            visible: true,
+            zIndex: 102,
+            size: 'small',
+            color: 'blue'
+
             }
           )
+          google.maps.event.addListener(marker<%=l.id %>, 'click', function(){
+            if (marker<%= l.id %>.getAnimation() != null){
+              marker<%= l.id %>.setAnimation(null)
+            }
+            else{
+              marker<%= l.id %>.setAnimation(google.maps.Animation.BOUNCE)
+            }
+          });
 
           var info<%= l.id %> = new google.maps.InfoWindow();
           var infoLoc<%= l.id %> = new google.maps.LatLng(<%= JSON.parse(l.location, {symbolize_names: true})[:lat] %>,<%= JSON.parse(l.location, {symbolize_names: true})[:lng] %>);
@@ -39,6 +50,9 @@
             zIndex: 102
           })
           info<%= l.id %>.open(map);
+          google.maps.event.addListener(marker<%=l.id%>, 'click', function() {
+            info<%=l.id%>.open(map,marker<%=l.id%>);
+          });
           google.maps.event.addListener(info<%= l.id %>, 'domready', function(){
                   $('#img<%=l.id %>').avgrund({width: 640,
                                               height: 350,
@@ -56,7 +70,8 @@
                                             });
                 });
 
-    $.ajax({url:"http://shrouded-beach-2183.herokuapp.com/stations/nearby",
+        //DIVVY STATIONS===================================
+        $.ajax({url:"http://shrouded-beach-2183.herokuapp.com/stations/nearby",
             data: {lat: <%= JSON.parse(l.location, {symbolize_names: true})[:lat] %>,
             lon: <%= JSON.parse(l.location, {symbolize_names: true})[:lng] %>},
             type: "GET",
@@ -70,14 +85,80 @@
                     lng:json[i].geometry.coordinates[0],
                     infoWindow: {content: 'Station Name: ' + json[i].properties.stationName + ' <br> Available Bikes: ' + json[i].properties.availableBikes + '<br> Available Docks: ' + json[i].properties.availableDocks, zIndex: 1000},
                     visible: true,
-                    zIndex: 1000
+                    zIndex: 1000,
+                    icon: '/assets/map-icon-inservice.png',
+                    animation: google.maps.Animation.DROP
                   });
                 }
                 created_station_ids.push(json[i].properties.id);
               }
             }
           });
+        //DIVVY ENDS==============================================
+
         <% end %>
+      //   map.travelRoute({
+      //                           origin: [<%= JSON.parse(@pois.first.location, {symbolize_names: true})[:lat] %>, <%= JSON.parse(@pois.first.location, {symbolize_names: true})[:lng] %>],
+      //     destination: [<%= JSON.parse(@pois.last.location, {symbolize_names: true})[:lat] %>, <%= JSON.parse(@pois.last.location, {symbolize_names: true})[:lng] %>],
+      //                           travelMode: 'driving',
+      //                           strokeColor: '#131540',
+      //                           strokeOpacity: 0.6,
+      //                           strokeWeight: 6
+      //                       });
+      //   map.getRoutes({
+      //     origin: [<%= JSON.parse(@pois.first.location, {symbolize_names: true})[:lat] %>, <%= JSON.parse(@pois.first.location, {symbolize_names: true})[:lng] %>],
+      //     destination: [<%= JSON.parse(@pois.last.location, {symbolize_names: true})[:lat] %>, <%= JSON.parse(@pois.last.location, {symbolize_names: true})[:lng] %>],
+      //     waypoints: <%= @location %>,
+      //     callback: function (e) {
+      //                               var time = 0;
+      //                               var distance = 0;
+      //                               for (var i=0; i<e[0].legs.length; i++) {
+      //                                   time += e[0].legs[i].duration.value;
+      //                                   distance += e[0].legs[i].distance.value;
+      //                               }
+      //                               alert(time + " " + distance);
+      //   }
+      // })
+        //DRAW ROUTES======================================
+        // var directionsDisplay;
+        // var directionsService = new google.maps.DirectionsService();
+        // directionsDisplay = new google.maps.DirectionsRenderer();
+        // map = new google.maps.Map(document.getElementById('map'));
+        // directionsDisplay.setMap(map);
+        // var waypts = [];
+
+        // <% @pois.each do |loc| %>
+        //       waypts.push({
+        //           location:<%= loc.location.html_safe %>,
+        //           stopover:true});
+        //  <% end %>
+
+        // var request = {
+        //       origin: <%= @pois.first.location.html_safe %>,
+        //       destination: <%= @pois.last.location.html_safe %>,
+        //       waypoints: waypts,
+        //       optimizeWaypoints: true,
+        //       travelMode: google.maps.TravelMode.BICYCLING
+        //   };
+        //   directionsService.route(request, function(response, status) {
+        //     if (status == google.maps.DirectionsStatus.OK) {
+        //       directionsDisplay.setDirections(response);
+        //       var route = response.routes[0];
+        //       var summaryPanel = document.getElementById('directions_panel');
+        //       summaryPanel.innerHTML = '';
+        //       // For each route, display summary information.
+        //       for (var i = 0; i < route.legs.length; i++) {
+        //         var routeSegment = i + 1;
+        //         summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment + '</b><br>';
+        //         summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
+        //         summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
+        //         summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
+        //       }
+        //     }
+        //   });
+
+      //ROUTES END===============================================
+
       }
     );
 
