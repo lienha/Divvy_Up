@@ -215,16 +215,8 @@ div.avgrund-popin.popup{
   text-align: left;
   float: left;
 }
-.elem_tour{
-  background-color: rgba(0,0,0,0.4);
-  padding: 10px;
+.elem h1{
   color: white;
-  padding-right: 10px;
-  width: 35%;
-  height: 900px;
-  max-height: 3000px;
-  text-align: left;
-  float: right;
 }
 .slider__arrows-item {
   position: absolute;
