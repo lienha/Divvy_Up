@@ -113,7 +113,7 @@ ul.tour_list p {
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   padding: 10px;
-  max-width: 550px;
+  max-width: 555px;
   margin: 30px auto;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -135,7 +135,11 @@ div.avgrund-popin.popup {
   padding-bottom: 40px;
   border-bottom: 2px solid #ccc;
 }
+.recommendation {
+  padding: 15px;
+}
 #side {
   display: block;
   margin-right: 1%;
 }
+

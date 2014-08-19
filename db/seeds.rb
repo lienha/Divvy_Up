@@ -9,6 +9,7 @@ require 'faker'
 User.delete_all
 Tour.delete_all
 Poi.delete_all
+Recommendation.delete_all
 
 users = []
 
@@ -237,36 +238,7 @@ Comment.create(poi_id: 14, user_id: users.sample.id,
 Comment.create(poi_id: 14, user_id: users.sample.id,
                text: "We found it by accident walking through the city but I loved it. My friend did not, she doesn't like modern art, but I thought it was interesting. Something fun right in the middle of the city.")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Recommendation.create(tour_id: tour1.id, user_id: users.sample.id, 
+     text: "Please consider adding the Willis Tower. I love that place.")
 
 
