@@ -65,7 +65,7 @@ Poi.create( name: 'Wrigley Building', tour_id: tour1.id,
 Poi.create( name: 'Trump Tower', tour_id: tour1.id,
           description: "The Trump International Hotel and Tower, also known as Trump Tower Chicago and Trump Tower, is a skyscraper condo-hotel in downtown Chicago, Illinois. The building, named after billionaire real estate developer Donald Trump",
           image: "/assets/trump_tower.jpg",
-          location: {lat: 41.888868, lng: -87.626394}.to_json) 
+          location: {lat: 41.888868, lng: -87.626394}.to_json)
 
 Poi.create( name: 'Marina City', tour_id: tour1.id,
           description: "Marina City is a mixed-use residential/commercial building complex that occupies an entire city block on State Street in Chicago, Illinois. The complex consists of two corncob-shaped, 587-foot (179 m), 65-story towers.",
@@ -110,7 +110,7 @@ Poi.create( name: 'Cloud Gate', tour_id: tour3.id,
           image: "/assets/bean.jpg",
           location: {lat: 41.882925, lng: -87.623315}.to_json)
 
-Poi.create( name: 'Monument with Standing Beast', tour_id: tour4.id,
+Poi.create( name: 'Standing Beast', tour_id: tour4.id,
           description: "Monument with Standing Beast is a sculpture by Jean Dubuffet in front of James R. Thompson Center in the Loop community area of Chicago. It is based on Dubuffet's 1960 painting series Hourioupe. The sculpture and the series of figural and landscape designs it is a part of reflects his thoughts of earliest monumental commission.",
           image: "/assets/standingbeast.jpg",
           location: {lat: 41.885063, lng: -87.631646}.to_json)

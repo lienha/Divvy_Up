@@ -2,12 +2,30 @@
 
     <%= javascript_include_tag 'gmaps', "data-turbolinks-track" => true %>
     <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/src/infobox.js"></script>
-    <%= stylesheet_link_tag "avgrund", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag 'jquery.glide' %>
     <script type="text/javascript">
+    $(document).ready(function(event){
+
+      var slider_content = [];
+      <% @pois.each do |l| %>
+      slider_content.push('<li class="slider__item"><div class="elem"><h1><%= l.name %></h1><p><%= l.description %></p><div class="comment_container"><%= escape_javascript(render partial: "comments/form", locals:{poi: l}) %><%= render partial: "comments/comment", locals:{poi: l}%></div></div></li>')
+      <%end %>
+
+      $('.slider__wrapper').append(slider_content.join(''));
+    });
+    </script>
+    <script type="text/javascript">
+
       var directionsService = new google.maps.DirectionsService();
       var directionsDisplay;
-      $('#map').ready(function(){
-        directionsDisplay = new google.maps.DirectionsRenderer();
+      $(document).ready(function(){
+
+      var glide = $('.slider').glide().data('api_glide');
+        directionsDisplay = new google.maps.DirectionsRenderer({
+          polylineOptions: {
+            strokeColor: "rgba(255,180,0,1)"
+          }
+          ,suppressMarkers: false});
         var infoWindow;
         var center = new google.maps.LatLng(<%= JSON.parse(@tour.center, {symbolize_names: true})[:lat]%>, <%= JSON.parse(@tour.center, {symbolize_names:true})[:lng]%>)
         var mapOptions = {
@@ -25,7 +43,7 @@
         <%unless @pois.first == x || @pois.last == x  %>
           waypts.push({
             location:new google.maps.LatLng(<%= JSON.parse(x.location, {symbolize_names: true})[:lat]%>, <%= JSON.parse(x.location, {symbolize_names:true})[:lng]%>),
-            stopover: true})
+            stopover: false})
           <%end%>
         <% end %>
 
@@ -41,8 +59,10 @@
             directionsDisplay.setDirections(response);
           }
         })
-        <% @pois.each do |l| %>
+        var counter = 1;
+        <% @pois.each_with_index do |l, i| %>
         //DIVVY STATIONS===================================
+        counter ++;
         $.ajax({url:"http://shrouded-beach-2183.herokuapp.com/stations/nearby",
             data: {lat: <%= JSON.parse(l.location, {symbolize_names: true})[:lat] %>,
             lon: <%= JSON.parse(l.location, {symbolize_names: true})[:lng] %>},
@@ -102,48 +122,70 @@
           var info<%= l.id %> = new google.maps.InfoWindow();
           // var infoLoc<%= l.id %> = new google.maps.LatLng(<%= JSON.parse(l.location, {symbolize_names: true})[:lat] %>,<%= JSON.parse(l.location, {symbolize_names: true})[:lng] %>);
           var info<%= l.id %> = new InfoBox({
-            content: '<%=l.name%><br><img src="<%= l.image %>" id="img<%=l.id%>" width="50" height="50">',
+            content: '<font size="1em" color="steelblue"><strong><%=l.name%></strong></font><br>',
             // position: infoLoc<%= l.id %>,
             zIndex: null,
             position: new google.maps.LatLng(<%= JSON.parse(l.location, {symbolize_names: true})[:lat]%>, <%= JSON.parse(l.location, {symbolize_names:true})[:lng]%>),
             boxStyle:{
-                    background: '#fff'
-                    ,opacity: 0.75
-                    ,width: 'auto'
-                   }
+                    border: '1px solid steelblue'
+                    ,borderRadius: '10px'
+                    ,textAlign: 'center'
+                    ,opacity: 0.9
+                    ,width: '120px'
+                    ,background: "#fff"
+                   },
+
+            pixelOffset: new google.maps.Size(0, -20),
+            closeBoxMargin: "0",
+            alignBottom: true,
+            infoBoxClearance: new google.maps.Size(1, 1),
+            pane: 'floatPane'
+
 
           })
-          info<%= l.id %>.open(map);
+
           google.maps.event.addListener(marker<%=l.id%>, 'click', function() {
-            info<%=l.id%>.open(map,marker<%=l.id%>);
+            glide.jump(<%=i+2%>);
           });
-          google.maps.event.addListener(info<%= l.id %>, 'domready', function(){
-                  $('#img<%=l.id %>').avgrund({width: 640,
-                                              height: 350,
-                                              showClose: false,
-                                              showCloseText: '',
-                                              closeByEscape: true,
-                                              closeByDocument: true,
-                                              holderClass: 'popup',
-                                              overlayClass: '',
-                                              enableStackAnimation: false,
-                                              onBlurContainer: '#map',
-                                              openOnEvent: true,
-                                              setEvent: 'click',
-                                              template: '<article class="poi_container"><img src="<%=l.image%>"><h1><%= l.name %></h1><br><%= l.description %></article><div class="comment_container"><%= escape_javascript(render partial: "comments/form", locals:{poi: l}) %><%= render partial: "comments/comment", locals:{poi: l}%></div>'
-                                            });
-                });
+
+          // google.maps.event.addListener(info<%= l.id %>, 'domready', function(){
+          //         $('#img<%=l.id %>').avgrund({width: 640,
+          //                                     height: 350,
+          //                                     showClose: false,
+          //                                     showCloseText: '',
+          //                                     closeByEscape: true,
+          //                                     closeByDocument: true,
+          //                                     holderClass: 'popup',
+          //                                     overlayClass: '',
+          //                                     enableStackAnimation: false,
+          //                                     onBlurContainer: '#map',
+          //                                     openOnEvent: true,
+          //                                     setEvent: 'click',
+          //                                     template: '<article class="poi_container"><img src="<%=l.image%>"><h1><%= l.name %></h1><br><%= l.description %></article><div class="comment_container"><%= escape_javascript(render partial: "comments/form", locals:{poi: l}) %><%= render partial: "comments/comment", locals:{poi: l}%></div>'
+          //                                   });
+                // });
 
 
         //DIVVY ENDS==============================================
 
         <% end %>
         directionsDisplay.setMap(map);
+        $('.slider').glide({
+          arrows: '.elem',
+          autoplay: false,
+          navigation: 'body'
+          });
+
       }
     );
 
 
     </script>
-
+  <div class="map_div">
     <div id="map"></div>
-
+  </div>
+  <div class="slider">
+    <ul class="slider__wrapper">
+      <li class="slider__item"><div class="elem"><h1><%= @tour.name %></h1><p>aslfdijasldkfjals</p></div><li>
+    </ul>
+  </div>
