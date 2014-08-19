@@ -213,7 +213,7 @@ div.avgrund-popin.popup {
   float: left;
   clear: none;
   z-index: 1999;
-  overflow-y: auto;xw
+  overflow-y: auto;
 }
 .elem{
   background-color: rgba(0,0,0,0.4);
