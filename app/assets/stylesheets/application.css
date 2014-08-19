@@ -216,13 +216,19 @@ div.avgrund-popin.popup {
 }
 .elem{
   background-color: rgba(0,0,0,0.4);
-  padding: 10px;
+  padding: 15px;
   color: white;
   width: 35%;
-  height: 900px;
+  height: 3000px;
   max-height: 3000px;
   text-align: left;
   float: left;
+}
+.recom{
+  color: white;
+}
+.recom:hover{
+  color: blue;
 }
 .elem h1{
   color: white;

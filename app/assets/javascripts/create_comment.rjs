@@ -1,0 +1,1 @@
+page.insert_html :bottom, 'comments_container<%=poi.id%>', partial: 'tours/slide', object: comments

@@ -1,5 +1,5 @@
 <% if current_user %>
-<%= form_for(:comment, url: poi_comments_path(poi.id)) do |f| %>
+<%= form_for :comment, remote: true, url: poi_comments_path(poi.id), id: "com_form#{poi.id}" do |f| %>
   <p>
     <%= f.hidden_field :poi_id, {value: poi.id} %>
     <%= f.label :text, "Tell Us What You Think:" %><br>
@@ -11,4 +11,4 @@
 <% end %>
 <% else %>
 	<p>Please <%=link_to "Sign In", signin_path %> or <%=link_to "Sign Up", signup_path %> to Comment</p>
-<% end %> 
+<% end %>
