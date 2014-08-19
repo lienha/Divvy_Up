@@ -118,13 +118,15 @@ html,body{
   border-bottom:16px solid #336699;
 }
 
-
-ul > .tour_list {
+p.short_desc {
+  padding-left: 10px;
+}
+ul.tour_list {
   list-style: none;
   margin-left: 0;
 }
 
-ul > .tour_list > li {
+ul.tour_list > li {
   margin: 10px;
   padding: 3px;
 }
@@ -145,7 +147,7 @@ ul.tour_list p {
   margin: 40px auto;
   background-color: rgba(0,0,0,0.5);
   width: 30%;
-  max-width: 240px;
+  max-width: 340px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
