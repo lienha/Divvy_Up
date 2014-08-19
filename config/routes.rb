@@ -19,12 +19,12 @@ DivvyUp::Application.routes.draw do
 
   root 'tours#index'
 
-  resources :tours do
+  resources :tours, only: [:index, :show] do
     resources :recommendations
   end
 
-  resources :pois do
-    resources :comments
+  resources :pois, only: [:show] do
+    resources :comments, only: [:create]
   end
 
   # Example of regular route:
