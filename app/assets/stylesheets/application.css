@@ -30,7 +30,7 @@ html,body{
   margin-left: 0;
   width: 60%;
   position: fixed;
-  z-index: 10000;
+  z-index: 1;
 }
 #map {
   overflow: hidden;
@@ -121,6 +121,7 @@ html,body{
 p.short_desc {
   padding-left: 10px;
 }
+
 ul.tour_list {
   list-style: none;
   margin-left: 0;
@@ -146,8 +147,9 @@ ul.tour_list p {
 .intro {
   margin: 40px auto;
   background-color: rgba(0,0,0,0.5);
-  width: 30%;
-  max-width: 340px;
+  width: 90%;
+  max-width: 600px;
+  text-align: center;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
