@@ -1,14 +1,11 @@
 class RecommendationsController < ApplicationController
 
   def index
-    # binding.pry
     @tour = Tour.find(params[:tour_id])
   end
 
   def create
-    binding.pry
     recommendation = Recommendation.new(recommendation_params)
-    # recommendation.tour_id = params[:tour_id]
     recommendation.user_id = current_user.id
 
     if recommendation.save
