@@ -1,0 +1,39 @@
+<div class="form_container">
+<h3>Recommended Stops for the <%= @tour.name %></h3>
+
+<% if current_user %>
+  <%= form_for(:recommendation, url: "/tours/#{@tour.id}/recommendations") do |f| %>
+      <br>
+      <div class="row">
+      <div class="small-9 columns">
+        <%= f.hidden_field :tour_id, {value: @tour.id} %>
+        <%= f.label :text, "What stop do you think we should add:" %>
+        <%= f.text_area :text %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-9 columns">
+        <%= f.submit "Submit", class: "button tiny [radius round]" %>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <div class="row">
+    <article class="recommendation">
+      To make a recommendation <%= link_to 'signin', signin_path %> or <%= link_to 'signup', signup_path %>.
+    </article>
+  </div>
+<% end %>
+
+<% if @tour.recommendations.any? %>
+  <div class="row">
+    <% @tour.recommendations.each do |r| %>
+      <article class="comment">
+        <%= raw(r.text.gsub(/\n+/, "<br/>")) %><br>
+        <small><%= r.user.username %> <%= r.created_at %></small>
+      </article>
+    <% end %>
+  </div>
+<% end %>
+
+</div>

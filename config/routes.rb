@@ -10,7 +10,6 @@ DivvyUp::Application.routes.draw do
   get '/howitworks', to: 'welcome#howitworks'
   # post '/sessions', to: 'sessions#create'
 
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -19,9 +18,13 @@ DivvyUp::Application.routes.draw do
   # get '/logout', to: 'sessions#destroy'
 
   root 'tours#index'
-  resources :tours 
-  resources :pois do
-    resources :comments
+
+  resources :tours, only: [:index, :show] do
+    resources :recommendations
+  end
+
+  resources :pois, only: [:show] do
+    resources :comments, only: [:create]
   end
 
   # Example of regular route:

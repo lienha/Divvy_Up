@@ -32,7 +32,7 @@ html,body{
   position: fixed;
   z-index: 10000;
 }
-#map{
+#map {
   overflow: hidden;
   display: block;
   max-width: 100%;
@@ -63,32 +63,37 @@ html,body{
   box-shadow: 0px 5px 20px #ccc;
   z-index: 1;
 }
-#map.large{
-  height:500px;
+#map.large {
+  height: 500px;
 }
-
 #map img {
-max-width: none;
+  max-width: none;
 }
 .vid {
   position: absolute;
-  width:100%;
+  width: 100%;
   min-height: 100%;
 }
-
-.overlay{
-  display:block;
-  text-align:center;
-  color:#fff;
-  font-size:60px;
-  line-height:80px;
-  opacity:0.8;
-  background:#4477aa;
-  border:solid 3px #336699;
-  border-radius:4px;
-  box-shadow:2px 2px 10px #333;
-  text-shadow:1px 1px 1px #666;
-  padding:0 4px;
+.overlay {
+  display: block;
+  text-align: center;
+  color: #fff;
+  font-size: 60px;
+  line-height: 80px;
+  opacity: 0.8;
+  background: #4477aa;
+  border: solid 3px #336699;
+  border-radius: 4px;
+  box-shadow: 2px 2px 10px #333;
+  text-shadow: 1px 1px 1px #666;
+  padding: 0 4px;
+}
+.overlay_arrow {
+  left: 50%;
+  margin-left: -16px;
+  width: 0;
+  height: 0;
+  position: absolute;
 }
 
 .overlay_arrow{
@@ -123,17 +128,19 @@ ul > .tour_list > li {
   margin: 10px;
   padding: 3px;
 }
-
-ul.tour_list a, ul.tour_list a:hover, ul.tour_list a:visited {
+ul.tour_list a,
+ul.tour_list a:hover,
+ul.tour_list a:visited {
   padding: 10px;
   color: white;
   text-decoration: none;
 }
-
 ul.tour_list a:hover {
   color: #DBDA89;
 }
-
+ul.tour_list p {
+  color: white;
+}
 .intro {
   margin: 40px auto;
   background-color: rgba(0,0,0,0.5);
@@ -141,30 +148,32 @@ ul.tour_list a:hover {
   max-width: 240px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
-  border-radius: 10px; /* future proofing */
-  -khtml-border-radius: 10px; /* for old Konqueror browsers */
+  border-radius: 10px;
+  /* future proofing */
+  -khtml-border-radius: 10px;
+  /* for old Konqueror browsers */
 }
-
 .sub_title {
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   color: white;
   padding: 10px;
-  max-width: 550px;
+  max-width: 555px;
   margin: 30px auto;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
-  border-radius: 10px; /* future proofing */
-  -khtml-border-radius: 10px; /* for old Konqueror browsers */
+  border-radius: 10px;
+  /* future proofing */
+  -khtml-border-radius: 10px;
+  /* for old Konqueror browsers */
 }
-
-div.avgrund-popin.popup{
+div.avgrund-popin.popup {
   overflow-y: scroll;
 }
-.comment{
+.comment {
   padding: 15px;
   border-top: 1px solid rgba(0,0,0,0.5);
 }
-.poi_container{
+.poi_container {
   width: 600;
   margin-bottom: 20px;
   padding-bottom: 40px;
@@ -251,3 +260,11 @@ div.avgrund-popin.popup{
 .slider__nav-item:hover {
   background: #ccc;
 }
+.recommendation {
+  padding: 15px;
+}
+#side {
+  display: block;
+  margin-right: 1%;
+}
+
