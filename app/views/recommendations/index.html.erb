@@ -31,6 +31,7 @@
       <article class="comment">
         <%= raw(r.text.gsub(/\n+/, "<br/>")) %><br>
         <small><%= r.user.username %> <%= r.created_at %></small>
+        <small><%= link_to 'upvote', url: /tours/:tour_id/recommendations/:id/upvote(.:format)%></small>
       </article>
     <% end %>
   </div>
