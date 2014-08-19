@@ -19,9 +19,9 @@ DivvyUp::Application.routes.draw do
   # get '/logout', to: 'sessions#destroy'
 
   root 'tours#index'
-  resources :tours 
-  resources :pois do
-    resources :comments
+  resources :tours, only: [:index, :show]
+  resources :pois, only: [:show] do
+    resources :comments, only: [:create]
   end
 
   # Example of regular route:
