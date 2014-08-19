@@ -12,7 +12,7 @@ class RecommendationsController < ApplicationController
       redirect_to  "/tours/#{params[:tour_id]}/recommendations"
     end
   end
-
+  
   private
   def recommendation_params
     params.require(:recommendation).permit(:text, :tour_id)
