@@ -118,6 +118,9 @@ html,body{
   border-bottom:16px solid #336699;
 }
 
+p.short_desc {
+  padding-left: 10px;
+}
 
 ul.tour_list {
   list-style: none;
