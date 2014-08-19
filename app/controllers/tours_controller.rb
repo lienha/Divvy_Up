@@ -1,10 +1,10 @@
 class ToursController < ApplicationController
-	def index
+  def index
     @tours = Tour.all
-		render 'index'
-	end
+    render 'index'
+  end
 
-	def show
+  def show
     if Tour.find_by(id: params[:id])
       @tour = Tour.find(params[:id])
       @tour_center = JSON.parse(@tour.center, {symbolize_names: true})
@@ -17,5 +17,5 @@ class ToursController < ApplicationController
     else
       render 'index'
     end
-	end
+  end
 end
