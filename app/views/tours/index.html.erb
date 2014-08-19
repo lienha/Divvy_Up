@@ -1,13 +1,5 @@
-<script type="text/javascript">
-$(document).ready(function(){
-  $('.container').vide('assets/bike.mp4');
-  var instance = $('.container').data('vide');
-  var video = instance.getVideoObject();
-});
 
-</script>
-
-<div class="container">
+<div class="vid">
 <div class="sub_title">
   Combine the adventure of a Divvy bike ride
   with the sights of Chicago. We have a selection of self-guided bike
@@ -23,3 +15,16 @@ $(document).ready(function(){
   </ul>
 </div>
 </div>
+
+    <%= javascript_include_tag 'jquery.vide.min'%>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('.vid').ready(function(){
+      $('.vid').vide('/assets/bike.mp4',{playbackRate: 1,
+        muted: true,
+        loop: true,
+        autoplay: true});
+    });
+});
+
+</script>

@@ -1,1 +1,1 @@
-<% if poi.comments.any? %><% i = 1 %><% poi.comments.each do |f| %><article class="comment"><%= f.text.gsub(/\n+/, "<br/>") %><br><small><%= f.user.username %></small></article><% end %><% end %>
+<% if poi.comments.any? %><% i = 1 %><% poi.comments.each do |f| %><article class="comment"><%= f.text %><br><small><%= f.user.username %></small></article><% end %><% end %>

@@ -4,15 +4,9 @@
     <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/src/infobox.js"></script>
     <%= javascript_include_tag 'jquery.glide' %>
     <script type="text/javascript">
-    $(document).ready(function(event){
+    $(document).ready(function(){
 
-      var slider_content = [];
-      <% @pois.each do |l| %>
-      slider_content.push('<li class="slider__item"><div class="elem"><h1><%= l.name %></h1><p><%= l.description %></p><div class="comment_container"><%= escape_javascript(render partial: "comments/form", locals:{poi: l}) %><%= render partial: "comments/comment", locals:{poi: l}%></div></div></li>')
-      <%end %>
-
-      $('.slider__wrapper').append(slider_content.join(''));
-    });
+    })
     </script>
     <script type="text/javascript">
 
@@ -20,12 +14,26 @@
       var directionsDisplay;
       $(document).ready(function(){
 
-      var glide = $('.slider').glide().data('api_glide');
+      var slider_content = [];
+      <% @pois.each do |l| %>
+      slider_content.push('<li class="slider__item"><div class="map_div_placeholder"><div class="map_placeholder"></div></div><div class="elem"><h1><%= l.name %></h1><p><%= l.description %></p><div class="comment_container"><%= escape_javascript(render partial: "comments/form", locals:{poi: l}) %><%= render partial: "comments/comment", locals:{poi: l}%></div></div></li>')
+      <%end %>
+
+      $('.slider__wrapper').append(slider_content.join(''));
+      $('.slider').glide({
+          arrows: 'body',
+          autoplay: false,
+          navigation: 'body'
+          });
         directionsDisplay = new google.maps.DirectionsRenderer({
           polylineOptions: {
-            strokeColor: "rgba(255,180,0,1)"
+            strokeColor: "rgba(255,180,0,0.8)"
+            ,strokeWeight: 7
+            ,geodesic: true
           }
-          ,suppressMarkers: false});
+
+          ,draggable: true
+          ,suppressMarkers: true});
         var infoWindow;
         var center = new google.maps.LatLng(<%= JSON.parse(@tour.center, {symbolize_names: true})[:lat]%>, <%= JSON.parse(@tour.center, {symbolize_names:true})[:lng]%>)
         var mapOptions = {
@@ -60,6 +68,8 @@
           }
         })
         var counter = 1;
+
+        var glide = $('.slider').glide().data('api_glide');
         <% @pois.each_with_index do |l, i| %>
         //DIVVY STATIONS===================================
         counter ++;
@@ -109,14 +119,6 @@
             }
           )
           marker<%= l.id %>.setMap(map);
-          google.maps.event.addListener(marker<%=l.id %>, 'click', function(){
-            if (marker<%= l.id %>.getAnimation() != null){
-              marker<%= l.id %>.setAnimation(null)
-            }
-            else{
-              marker<%= l.id %>.setAnimation(google.maps.Animation.BOUNCE)
-            }
-          });
 
 
           var info<%= l.id %> = new google.maps.InfoWindow();
@@ -148,44 +150,19 @@
             glide.jump(<%=i+2%>);
           });
 
-          // google.maps.event.addListener(info<%= l.id %>, 'domready', function(){
-          //         $('#img<%=l.id %>').avgrund({width: 640,
-          //                                     height: 350,
-          //                                     showClose: false,
-          //                                     showCloseText: '',
-          //                                     closeByEscape: true,
-          //                                     closeByDocument: true,
-          //                                     holderClass: 'popup',
-          //                                     overlayClass: '',
-          //                                     enableStackAnimation: false,
-          //                                     onBlurContainer: '#map',
-          //                                     openOnEvent: true,
-          //                                     setEvent: 'click',
-          //                                     template: '<article class="poi_container"><img src="<%=l.image%>"><h1><%= l.name %></h1><br><%= l.description %></article><div class="comment_container"><%= escape_javascript(render partial: "comments/form", locals:{poi: l}) %><%= render partial: "comments/comment", locals:{poi: l}%></div>'
-          //                                   });
-                // });
-
-
-        //DIVVY ENDS==============================================
-
         <% end %>
         directionsDisplay.setMap(map);
-        $('.slider').glide({
-          arrows: '.elem',
-          autoplay: false,
-          navigation: 'body'
-          });
+
 
       }
     );
-
-
     </script>
   <div class="map_div">
     <div id="map"></div>
   </div>
   <div class="slider">
     <ul class="slider__wrapper">
-      <li class="slider__item"><div class="elem"><h1><%= @tour.name %></h1><p>aslfdijasldkfjals</p></div><li>
+      <li class="slider__item"><div class="map_div_placeholder"><div class="map_placeholder"></div></div><div class="elem"><h1><%= @tour.name %></h1><p>hello, i am a placeholder</p>
+        </div></li>
     </ul>
   </div>

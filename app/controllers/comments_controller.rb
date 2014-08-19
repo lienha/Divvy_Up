@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 
 	def create
-		comment = Comment.create(poi_id: params[:poi_id], user_id: current_user.id, text: params[:comment][:text])
+		comment = Comment.create(poi_id: params[:poi_id], user_id: current_user.id, text: strip_newlines)
     redirect_to (:back)
     # respond_to do |format|
       # msg = { :status => "ok", :message => "Success!", :id => comment.id }
@@ -10,4 +10,9 @@ class CommentsController < ApplicationController
 		# head :ok
 		#ajax
 	end
+
+  private
+    def strip_newlines
+      params[:comment][:text].gsub(/\n/," ").gsub(/\r/, "")
+    end
 end
