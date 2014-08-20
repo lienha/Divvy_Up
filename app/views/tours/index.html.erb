@@ -19,14 +19,12 @@
 
 <%= javascript_include_tag 'jquery.vide.min'%>
 <script type="text/javascript">
-$(function(){
-  $('.vid').ready(function(){
-    $('.vid').vide('/assets/bike.mp4',{playbackRate: 1,
-      muted: true,
-      loop: true,
-      autoplay: true});
+  $(function(){
+    $('.vid').ready(function(){
+      $('.vid').vide('/assets/bike.mp4',{playbackRate: 1,
+        muted: true,
+        loop: true,
+        autoplay: true});
+    });
   });
-});
-
-
 </script>

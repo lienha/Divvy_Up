@@ -24,7 +24,7 @@ ___________________________________________________________________
 ##Dependencies
 
 The application uses Rails with a number of Gems, see the Gemfile for a complete list. There
-is also Google maps, and jQuery, and Foundation, among other cool things.
+is also Google maps, and jQuery, and Foundation, among other cool things. 
 
 
 

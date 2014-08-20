@@ -144,5 +144,3 @@ script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callb
 $(window).load(function(){
   document.body.appendChild(script);
 });
-$(document).ready(function(){
-});
