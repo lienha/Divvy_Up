@@ -3,16 +3,19 @@
     <%= javascript_include_tag 'gmaps', "data-turbolinks-track" => true %>
     <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/src/infobox.js"></script>
     <%= javascript_include_tag 'jquery.glide' %>
-    <script type="text/javascript">
+    
+  <script>
+    var directionsService = new google.maps.DirectionsService();
+    var directionsDisplay;
+    var total_stations_info = [];
+
+    function close_all_info_windows(){
+      for (x=0; x < total_stations_info.length; x++){
+        total_stations_info[x].close();
+      }
+    }
+
     $(document).ready(function(){
-
-    })
-    </script>
-    <script type="text/javascript">
-
-      var directionsService = new google.maps.DirectionsService();
-      var directionsDisplay;
-      $(document).ready(function(){
 
       var slider_content = [];
       <% @pois.each do |l| %>
@@ -96,14 +99,16 @@
                 created_station_ids.push(json[i].properties.id);
                 stations_info[i] = new google.maps.InfoWindow();
                 stations_info[i].setOptions({
-                    content: 'Station Name: ' + json[i].properties.stationName + ' <br> Available Bikes: ' + json[i].properties.availableBikes + '<br> Available Docks: ' + json[i].properties.availableDocks, zIndex: 1000,
+                    content: 'Station: ' + json[i].properties.stationName + ' <br> Available Bikes: ' + json[i].properties.availableBikes + '<br> Available Docks: ' + json[i].properties.availableDocks, zIndex: 1000,
                     height: 180,
                     zIndex: 102,
                     position: new google.maps.LatLng(json[i].geometry.coordinates[1], json[i].geometry.coordinates[0])
                   });
+                total_stations_info[total_stations_info.length] = stations_info[i];
               }
               stations.forEach(function(loc, ind){
                 google.maps.event.addListener(loc, 'click', function(){
+                  close_all_info_windows();
                   stations_info[ind].open(map, loc);
                 });
               })
