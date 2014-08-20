@@ -4,7 +4,8 @@ class CreatePois < ActiveRecord::Migration
       t.integer :tour_id
       t.string :name
       t.string :description
-      t.string :location
+      t.decimal :lat, precision: 12, scale: 6
+      t.decimal :lng, precision: 12, scale: 6
       t.string :image
 
       t.timestamps

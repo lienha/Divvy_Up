@@ -28,7 +28,8 @@ ActiveRecord::Schema.define(version: 20140818155812) do
     t.integer  "tour_id"
     t.string   "name"
     t.text     "description"
-    t.string   "location"
+    t.decimal  "lat",         precision: 12, scale: 6
+    t.decimal  "lng",         precision: 12, scale: 6
     t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -44,8 +45,9 @@ ActiveRecord::Schema.define(version: 20140818155812) do
 
   create_table "tours", force: true do |t|
     t.string   "name"
-    t.integer  "zoom",              default: 12
-    t.string   "center"
+    t.integer  "zoom",                                       default: 12
+    t.decimal  "lat",               precision: 12, scale: 6
+    t.decimal  "lng",               precision: 12, scale: 6
     t.integer  "creator_id"
     t.datetime "created_at"
     t.datetime "updated_at"

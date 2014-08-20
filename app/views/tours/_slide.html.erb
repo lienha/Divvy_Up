@@ -1,3 +1,16 @@
+<li class="slider__item" >
+  <div class="map_div_placeholder">
+    <div class="map_placeholder"></div>
+  </div>
+
+  <div class="elem">
+    <h1><%= @tour.name %></h1>
+    <%= link_to "Recommend Stops", tour_recommendations_path(@tour), class:"recom"  %>
+    <br><br>
+    <p><%= @tour.long_description %></p>
+  </div>
+</li>
+
 <% @pois.each do |poi| %>
 <li class="slider__item">
   <div class="map_div_placeholder">
