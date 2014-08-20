@@ -106,7 +106,7 @@ function loader(){
           markers_and_infos['info'][index].open(map, markers_and_infos['marker'][index]);
         });
         google.maps.event.addListener(markers_and_infos['marker'][index], 'click', function() {
-          glide.jump(index+1);
+          glide.jump(index+2);
         });
       });
       $.each(json_loc.pois, function(index, value){
