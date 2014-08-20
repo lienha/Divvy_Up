@@ -5,13 +5,13 @@
 <%= javascript_include_tag 'tour_map' %>
 <script type="text/javascript">
   $(function(){
-  $('.slider__wrapper').html('<%= escape_javascript(render partial:"slide" ) %>');
-  $('.slider').glide({
-      arrows: 'body',
-      autoplay: false,
-      navigation: 'body',
-      circular: false
-      });
+    $('.slider__wrapper').html('<%= escape_javascript(render partial:"slide" ) %>');
+    $('.slider').glide({
+        arrows: 'body',
+        autoplay: false,
+        navigation: 'body',
+        circular: false
+        });
   });
 </script>
   <div class="map_div">
