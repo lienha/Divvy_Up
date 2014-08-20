@@ -20,11 +20,11 @@ DivvyUp::Application.routes.draw do
   root 'tours#index'
 
   resources :tours, only: [:index, :show] do
-    resources :recommendations do
-      member do
-        post 'upvote'
-      end
-    end
+    resources :recommendations
+  end
+
+  resources :recommendations, only: [] do
+    resources :votes, only: [:create]
   end
 
   resources :pois, only: [:show] do

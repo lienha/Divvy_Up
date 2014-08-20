@@ -12,10 +12,6 @@ class RecommendationsController < ApplicationController
       redirect_to  "/tours/#{params[:tour_id]}/recommendations"
     end
   end
-  def upvote
-    @recommendation.votes.create(user_id: current_user.id, recommendation_id: params[:rec_id])
-    redirect_to(tour_recommendations_path)
-  end
 
   private
   def recommendation_params
