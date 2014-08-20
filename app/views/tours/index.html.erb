@@ -10,22 +10,22 @@
 
   <ul class="tour_list">
   <% @tours.each do |tour| %>
-    <li><h4><a href='/tours/<%=tour.id%>'><%= tour.name %></a></h4></li>
-    <p><%= tour.short_description %></p>
+    <li><h4><a href="/tours/<%=tour.id%>"><%= tour.name %></a></h4></li>
+    <p class="short_desc"><%= tour.short_description %></p>
   <% end %>
   </ul>
 </div>
 </div>
 
-    <%= javascript_include_tag 'jquery.vide.min'%>
+<%= javascript_include_tag 'jquery.vide.min'%>
 <script type="text/javascript">
-$(document).ready(function(){
+  $(function(){
     $('.vid').ready(function(){
       $('.vid').vide('/assets/bike.mp4',{playbackRate: 1,
         muted: true,
         loop: true,
         autoplay: true});
     });
-});
+  });
 
 </script>
