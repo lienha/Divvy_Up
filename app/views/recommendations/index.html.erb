@@ -31,9 +31,13 @@
       <article class="comment">
         <%= raw(r.text.gsub(/\n+/, "<br/>")) %><br>
         <small><%= r.user.username %> <%= r.created_at %></small>
+        <small><%= link_to image_tag("thumbs_up.png"), recommendation_votes_path(r), method: :post %> </small>
+        <small> + <%= Vote.where(recommendation_id: r.id).sum("value") %> </small>
       </article>
     <% end %>
   </div>
 <% end %>
-
+  <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
 </div>

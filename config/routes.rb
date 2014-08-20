@@ -23,6 +23,10 @@ DivvyUp::Application.routes.draw do
     resources :recommendations
   end
 
+  resources :recommendations, only: [] do
+    resources :votes, only: [:create]
+  end
+
   resources :pois, only: [:show] do
     resources :comments, only: [:create]
   end
