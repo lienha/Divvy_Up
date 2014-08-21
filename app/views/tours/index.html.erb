@@ -10,13 +10,17 @@
 
     <ul class="tour_list">
     <% Tour.all.each do |tour| %>
-      <li><h4><a href='/tours/<%=tour.id%>'><%= tour.name %></a></h4></li>
+      <li><h4><a href=# onclick="go_to(<%=tour.id%>)"><%= tour.name %></a></h4></li>
       <p><%= tour.short_description %></p>
     <% end %>
     </ul>
   </div>
 </div>
-
+<script type="text/javascript">
+   function go_to(page) {
+    window.open('/tours/' + page, "_self");
+   }
+</script>
 <%= javascript_include_tag 'jquery.vide.min'%>
 <script type="text/javascript">
   $(function(){
