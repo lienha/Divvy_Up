@@ -195,6 +195,10 @@ function loader(){
           stop_marker_jump();
           markers_and_infos['marker'][index].setAnimation(google.maps.Animation.BOUNCE);
         });
+        google.maps.event.addListener(map, 'click', function(){
+          glide.jump(1);
+          stop_marker_jump();
+        });
       });
       $.each(json_loc.pois, function(index, value){
     if (index !== 0 || index !== json_loc.pois.length -1){

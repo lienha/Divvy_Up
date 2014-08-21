@@ -247,23 +247,26 @@ div.avgrund-popin.popup {
   left: 30px;
 }
 .slider__nav {
-  position: absolute;
-  bottom: 10px;
+  position: fixed;
+  bottom: 2%;
+  z-index: 3000;
 }
 .slider__nav-item {
-  width: 12px;
-  height: 12px;
+  width: 20px;
+  height: 20px;
   float: left;
   clear: none;
   display: block;
   margin: 0;
-  background: #fff;
+  border-right: 1px solid orange;
+  background: rgba(0,100,180,0.5);
 }
 .slider__nav-item--current {
-  background: #ccc;
+  background: rgba(255,255,255,0.9);
+  border:1px solid orange;
 }
 .slider__nav-item:hover {
-  background: #ccc;
+  background: rgba(255,255,255,0.9);
 }
 .recommendation {
   padding: 15px;

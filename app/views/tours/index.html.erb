@@ -16,13 +16,15 @@
     </ul>
   </div>
 </div>
-<script type="text/javascript">
-   function go_to(page) {
-    window.open('/tours/' + page, "_self");
-   }
-</script>
+
+
 <%= javascript_include_tag 'jquery.vide.min'%>
 <script type="text/javascript">
+
+  function go_to(page) {
+    window.open('/tours/' + page, "_self");
+  }
+
   $(function(){
     $('.vid').ready(function(){
       $('.vid').vide('/assets/bike.mp4',{playbackRate: 1,
