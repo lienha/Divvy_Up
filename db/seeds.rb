@@ -30,7 +30,7 @@ Tour.create(name: 'Sculpture Tour', creator_id: admin.id, zoom: 15,
             short_description: "Visit the endless collections at the Art Institute and many public art sculptures by the world's most famous modern artists like Picasso and Calder.",
             long_description: "From Jean Dubuffet's Monument With Standing Beast to Anish Kapoor's Cloud Gate, this  tour winds through down town Chicago, passing some of the city's landmark buildings and stopping at monumental sculptures commissioned from some of the most important artists of their time. There are endless collections at the Art Institute and many overlook the world-class collection of public art on display throughout Chicago's commercial center. The Loop is a veritable open air museum of sculptures by the world's most famous modern artists (Picasso, Calder, Miro, Lewitt, etc.), and it's all, of course, free. These monumental sculptures are a both part of Chicago's distinctive character and a major source of civic pride. Take this tour in the morning or early afternoon, and stop at one of the many coffee houses or cafes along the way for a morning pick-me-up or mid-day meal.")
 
-Tour.create(name: 'Crime and Mob Tour', creator_id: admin.id, zoom: 15,
+Tour.create(name: 'Ganster Tour', creator_id: admin.id, zoom: 15,
              lat: 41.92517580576991, lng: -87.6439905166626,
             short_description: "Explore the city’s most famous crime scenes.",
             long_description: "Chicago is full of crime scenes and historical landmarks made famous by our city’s own mobs and gangsters. In this tour, explore the city’s most famous crime scenes as you investigate stories about Al Capone, The Untouchables, the Chicago Mob and their and mischievous activities.")
@@ -49,7 +49,7 @@ Tour.create(name: 'Film Tour', creator_id: admin.id, zoom: 14,
 
 
 tour1 = admin.tours.first
-tour2 = Tour.find_by(name: 'Crime and Mob Tour')
+tour2 = Tour.find_by(name: 'Ganster Tour')
 tour3 = Tour.find_by(name: 'Film Tour')
 tour4 = Tour.find_by(name: 'Sculpture Tour')
 
@@ -80,10 +80,14 @@ Poi.create( name: 'House of Blues', tour_id: tour1.id,
             image: "/assets/houseofblues.jpg",
             lat: 41.888233, lng: -87.62913)
 
-Poi.create( name: 'Green Mill Jazz Club', tour_id: tour2.id,
-            description: "Once a favorite of Al Capone His favorite booth is still in the establishment located directly west of the short end of the bar. Capone and his men would sit here because it afforded clear views of both the front and back entrances to the establishment. It is rumored that there is still an access hatch to the tunnels located directly behind the long end of the bar that leads underneath the street to an adjacent building; this is how Capone was able to elude the authorities or the quasi detectives when he visited the Green Mill.",
-            image: "/assets/green_mill.jpg",
-            lat: 41.969199, lng: -87.65989)
+# Poi.create( name: 'Green Mill Jazz Club', tour_id: tour2.id,
+#             description: "Once a favorite of Al Capone His favorite booth is still in the establishment located directly west of the short end of the bar. Capone and his men would sit here because it afforded clear views of both the front and back entrances to the establishment. It is rumored that there is still an access hatch to the tunnels located directly behind the long end of the bar that leads underneath the street to an adjacent building; this is how Capone was able to elude the authorities or the quasi detectives when he visited the Green Mill.",
+#             image: "/assets/green_mill.jpg",
+#             lat: 41.969199, lng: -87.65989)
+Poi.create( name: 'S-M-G Garage', tour_id: tour2.id,
+            description: "Site of the St Valentine's Day Massacre, Chicago, Illinois. It happened on February 14, 1929, when seven members of the Bugs Moran gang were gunned down by members of the Al Capone gang. The victims were stood against a brick wall and shot.",
+            image: "/assets/st_valentines.jpg",
+            lat: 41.9207993, lng: -87.6375942)            
 Poi.create( name: 'John Barleycorn', tour_id: tour2.id,
             description: "Once a speakeasy, it appeared to be a Chinese laundry, but in reality bar patrons entered through a back entrance through the basement, where the liquor was carted in. The pub still honors its roots by displaying a woodcarving dating back to the speakeasy days.",
             image: "/assets/johnbarleycorn.jpg",
