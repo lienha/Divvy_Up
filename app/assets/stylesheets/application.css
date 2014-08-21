@@ -132,14 +132,13 @@ ul.tour_list > li {
   padding: 3px;
 }
 ul.tour_list a,
-ul.tour_list a:hover,
 ul.tour_list a:visited {
   padding: 10px;
   color: white;
   text-decoration: none;
 }
 ul.tour_list a:hover {
-  color: #DBDA89;
+  color: #ffb400;
 }
 ul.tour_list p {
   color: white;
@@ -279,4 +278,9 @@ div.avgrund-popin.popup {
   display: block;
   margin-right: 1%;
 }
-
+.elem > a, div p a, .row a {
+  color: blue;
+}
+.elem > a:hover, div p a:hover, .row a:hover {
+  color: #ffb400;
+}
