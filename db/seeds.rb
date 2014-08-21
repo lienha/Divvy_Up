@@ -30,7 +30,7 @@ Tour.create(name: 'Sculpture Tour', creator_id: admin.id, zoom: 15,
             short_description: "Visit the endless collections at the Art Institute and many public art sculptures by the world's most famous modern artists like Picasso and Calder.",
             long_description: "From Jean Dubuffet's Monument With Standing Beast to Anish Kapoor's Cloud Gate, this  tour winds through down town Chicago, passing some of the city's landmark buildings and stopping at monumental sculptures commissioned from some of the most important artists of their time. There are endless collections at the Art Institute and many overlook the world-class collection of public art on display throughout Chicago's commercial center. The Loop is a veritable open air museum of sculptures by the world's most famous modern artists (Picasso, Calder, Miro, Lewitt, etc.), and it's all, of course, free. These monumental sculptures are a both part of Chicago's distinctive character and a major source of civic pride. Take this tour in the morning or early afternoon, and stop at one of the many coffee houses or cafes along the way for a morning pick-me-up or mid-day meal.")
 
-Tour.create(name: 'Ganster Tour', creator_id: admin.id, zoom: 15,
+Tour.create(name: 'Gangster Tour', creator_id: admin.id, zoom: 15,
              lat: 41.92517580576991, lng: -87.6439905166626,
             short_description: "Explore the city’s most famous crime scenes.",
             long_description: "Chicago is full of crime scenes and historical landmarks made famous by our city’s own mobs and gangsters. In this tour, explore the city’s most famous crime scenes as you investigate stories about Al Capone, The Untouchables, the Chicago Mob and their and mischievous activities.")
@@ -49,7 +49,7 @@ Tour.create(name: 'Film Tour', creator_id: admin.id, zoom: 14,
 
 
 tour1 = admin.tours.first
-tour2 = Tour.find_by(name: 'Ganster Tour')
+tour2 = Tour.find_by(name: 'Gangster Tour')
 tour3 = Tour.find_by(name: 'Film Tour')
 tour4 = Tour.find_by(name: 'Sculpture Tour')
 
