@@ -6,8 +6,12 @@
 
   <div class="elem">
     <h1><%= @tour.name %></h1>
-    <%= link_to "Recommend Stops", tour_recommendations_path(@tour), class:"recom"  %>
-    <br><br>
+
+    <%= link_to "Recommend Stops", tour_recommendations_path(@tour), class:"recom" %><br>
+    <br>
+    <p>
+      <input type="button" value="Show my nearest Divvy!" id="my_divvy" />
+    </p>
     <p><%= @tour.long_description %></p>
   </div>
 </li>
