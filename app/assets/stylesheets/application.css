@@ -273,8 +273,18 @@ div.avgrund-popin.popup {
   margin-right: 1%;
 }
 .elem > a, div p a, .row a {
-  color: blue;
-}
-.elem > a:hover, div p a:hover, .row a:hover {
   color: #ffb400;
 }
+.elem > a:hover, div p a:hover, .row a:hover {
+  color: #009ed2;
+}
+a.reverse_link {
+  color: #009ed2;
+}
+a.reverse_link:hover {
+  color: #ffb400;
+}
+p label {
+  color: #fff;
+}
+
