@@ -278,6 +278,12 @@ div.avgrund-popin.popup {
 .elem > a:hover, div p a:hover, .row a:hover {
   color: #009ed2;
 }
+a.reverse_link {
+  color: #009ed2;
+}
+a.reverse_link:hover {
+  color: #ffb400;
+}
 p label {
   color: #fff;
 }
