@@ -1,9 +1,11 @@
   class VotesController < ApplicationController 
 	  def create
-	  	current_user
 		    @recommendation = Recommendation.find(params[:recommendation_id])
-		    @vote = Vote.create(user_id: current_user.id, recommendation_id: @recommendation.id, value: 1)
-		    redirect_to "/tours/#{@recommendation.tour_id}/recommendations"
+		    @vote = Vote.create(user_id: current_user.id, recommendation_id: @recommendation.id, value: 1) 
+		    @sum = Vote.where(recommendation_id: @recommendation.id).sum("value")
+		 	respond_to do |format|
+		 		format.js
+		 	end	    
 	  end 	
 	  private
 	  def vote_params
