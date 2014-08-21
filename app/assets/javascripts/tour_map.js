@@ -65,7 +65,7 @@ function loader(){
         });
         nearest_station_info = new google.maps.InfoWindow();
         nearest_station_info.setOptions({
-          content: 'Station Name: ' + json.properties.stationName + ' <br> Available Bikes: ' + json.properties.availableBikes + '<br> Available Docks: ' + json.properties.availableDocks, zIndex: 1000,
+          content: 'Station: <b>' + json.properties.stationName + '</b> <br> Available Bikes: <b>' + json.properties.availableBikes + '</b><br> Available Docks: <b>' + json.properties.availableDocks + '</b>', zIndex: 1000,
           height: 180,
           position: new google.maps.LatLng(json.geometry.coordinates[1], json.geometry.coordinates[0])
         });
@@ -157,7 +157,7 @@ function loader(){
               created_station_ids.push(json[i].properties.id);
               stations_info[i] = new google.maps.InfoWindow();
               stations_info[i].setOptions({
-                  content: 'Station Name: ' + json[i].properties.stationName + ' <br> Available Bikes: ' + json[i].properties.availableBikes + '<br> Available Docks: ' + json[i].properties.availableDocks, zIndex: 100,
+                  content: 'Station: <b>' + json[i].properties.stationName + '</b><br> Available Bikes: <b>' + json[i].properties.availableBikes + '</b><br> Available Docks: <b>' + json[i].properties.availableDocks + '</b>', zIndex: 100,
                   height: 180,
                   position: new google.maps.LatLng(json[i].geometry.coordinates[1], json[i].geometry.coordinates[0])
                 });
