@@ -7,6 +7,7 @@ var marker_id = 0;
 var poi_array = [];
 var map;
 var total_stations_info = [];
+var tour_center;
 var close_all_info_windows = function(){
   if (total_stations_info.length > 0){
     for (x = 0; x< total_stations_info.length ; x++){
@@ -14,7 +15,87 @@ var close_all_info_windows = function(){
     }
   }
 };
+var stop_marker_jump = function(){
+  if (markers_and_infos['marker'].length > 0){
+    for (x = 0; x< markers_and_infos['marker'].length; x++){
+      markers_and_infos['marker'][x].setAnimation(null);
+    }
+  }
+};
+function handleNoGeolocation(errorFlag) {
+  if (errorFlag) {
+    var content = 'Error: The Geolocation service failed.';
+
+  } else {
+    var content = 'Error: Your browser doesn\'t support geolocation.';
+  }
+
+  var options = {
+    map: map,
+    position: new google.maps.LatLng(60, 105),
+    content: content
+  };
+
+  var infowindow = new google.maps.InfoWindow(options);
+  map.setCenter(options.position);
+}
+
+
 function loader(){
+  function get_nearest_station(pos){
+    console.log(pos);
+    $.ajax({url:"http://shrouded-beach-2183.herokuapp.com/stations/nearby",
+      data:{
+      lat: pos.k,
+      lon: pos.B,
+      max_stations: 1
+      },
+      type: "GET",
+      dataType: "json",
+      success: function(json){
+        json = json[0];
+        var nearest_station_info;
+        var nearest_station = new google.maps.Marker({
+          map: map,
+          position: new google.maps.LatLng(json.geometry.coordinates[1], json.geometry.coordinates[0]),
+          visible: true,
+          zIndex: 1000,
+          icon: '/assets/map-icon-inservice.png',
+          animation: google.maps.Animation.DROP
+        });
+        nearest_station_info = new google.maps.InfoWindow();
+        nearest_station_info.setOptions({
+          content: 'Station Name: ' + json.properties.stationName + ' <br> Available Bikes: ' + json.properties.availableBikes + '<br> Available Docks: ' + json.properties.availableDocks, zIndex: 1000,
+          height: 180,
+          position: new google.maps.LatLng(json.geometry.coordinates[1], json.geometry.coordinates[0])
+        });
+        google.maps.event.addListener(nearest_station, 'click', function(){
+          nearest_station_info.open(map, nearest_station);
+        });
+        var directionsRequest = {
+          origin: pos,
+          destination: new google.maps.LatLng(json.geometry.coordinates[1], json.geometry.coordinates[0]),
+          travelMode: google.maps.DirectionsTravelMode.WALKING,
+          unitSystem: google.maps.UnitSystem.METRIC
+        };
+        directionsService.route(
+          directionsRequest,
+          function(response, status)
+          {
+            if (status == google.maps.DirectionsStatus.OK)
+            {
+              new google.maps.DirectionsRenderer({
+                map: map,
+                directions: response
+              });
+            }
+            else
+              $("#error").append("Unable to retrieve your route<br />");
+          }
+        );
+      }
+    });
+  }
   var glide = $('.slider').glide().data('api_glide');
   var waypts = [];
 
@@ -32,13 +113,17 @@ function loader(){
     geodesic: true,
     draggable: true
   });
+
+  var center;
   $.getJSON(pathname + '.json', function(resp){
+
       var json_loc = resp;
       $.each(resp.pois, function(index, value){
         value.lat = parseFloat(value.lat);
         value.lng = parseFloat(value.lng);
       });
       center = new google.maps.LatLng(resp.lat, resp.lng);
+      tour_center = center;
       mapOptions = {
               zoom:resp.zoom,
               center: center,
@@ -64,7 +149,7 @@ function loader(){
                   map: map,
                   position: new google.maps.LatLng(json[i].geometry.coordinates[1], json[i].geometry.coordinates[0]),
                   visible: true,
-                  zIndex: 1000,
+                  zIndex: 30,
                   icon: '/assets/map-icon-inservice.png',
                   animation: google.maps.Animation.DROP
                 });
@@ -72,7 +157,7 @@ function loader(){
               created_station_ids.push(json[i].properties.id);
               stations_info[i] = new google.maps.InfoWindow();
               stations_info[i].setOptions({
-                  content: 'Station Name: ' + json[i].properties.stationName + ' <br> Available Bikes: ' + json[i].properties.availableBikes + '<br> Available Docks: ' + json[i].properties.availableDocks, zIndex: 1000,
+                  content: 'Station Name: ' + json[i].properties.stationName + ' <br> Available Bikes: ' + json[i].properties.availableBikes + '<br> Available Docks: ' + json[i].properties.availableDocks, zIndex: 100,
                   height: 180,
                   position: new google.maps.LatLng(json[i].geometry.coordinates[1], json[i].geometry.coordinates[0])
                 });
@@ -95,7 +180,7 @@ function loader(){
           title: value.name,
           id: value.id,
           visible: true,
-          zIndex: 102
+          zIndex: 50
           });
         console.log(value);
 
@@ -107,6 +192,8 @@ function loader(){
         });
         google.maps.event.addListener(markers_and_infos['marker'][index], 'click', function() {
           glide.jump(index+2);
+          stop_marker_jump();
+          markers_and_infos['marker'][index].setAnimation(google.maps.Animation.BOUNCE);
         });
       });
       $.each(json_loc.pois, function(index, value){
@@ -134,12 +221,35 @@ function loader(){
 
 
   });
+  $('#my_divvy').click(function(){
+    if(navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+      function(position) {
+        var pos = new google.maps.LatLng(position.coords.latitude,
+                                         position.coords.longitude);
+        var current_loc_info = new google.maps.InfoWindow({
+          map: map,
+          position: pos,
+          content: 'You are here.'
+        });
+        map.setCenter(pos);
+        get_nearest_station(pos);
+      }, function() {
+        handleNoGeolocation(true);
+      });
+    } else {
+      // Browser doesn't support Geolocation
+      handleNoGeolocation(false);
+    }
+  });
+
 
 }
 
 var script = document.createElement('script');
 script.type = 'text/javascript';
 script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=loader';
+
 
 $(window).load(function(){
   document.body.appendChild(script);

@@ -1,12 +1,17 @@
-<li class="slider__item" >
+<li class="slider__item" style="background-image: url(/assets/architecture_tour_slide.jpg); background-repeat: no-repeat; background-);
+    background-repeat: no-repeat; background-size: cover;">
   <div class="map_div_placeholder">
     <div class="map_placeholder"></div>
   </div>
 
   <div class="elem">
     <h1><%= @tour.name %></h1>
-    <%= link_to "Recommend Stops", tour_recommendations_path(@tour), class:"recom"  %>
-    <br><br>
+
+    <%= link_to "Recommend Stops", tour_recommendations_path(@tour), class:"recom" %><br>
+    <br>
+    <p>
+      <input type="button" value="Show my nearest Divvy!" id="my_divvy" />
+    </p>
     <p><%= @tour.long_description %></p>
   </div>
 </li>
