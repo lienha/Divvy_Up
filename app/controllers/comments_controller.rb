@@ -1,20 +1,14 @@
 class CommentsController < ApplicationController
-	# content_type :json
+	respond_to :json, :xml, :html
   def create
     @poi = params[:poi_id]
-    comment = Comment.create(poi_id: @poi, user_id: current_user.id, text: strip_newlines)
-    curr_poi = Poi.find(@poi.to_i)
-    comments = curr_poi.comments.all
-
+    @comment = Comment.create(poi_id: @poi, user_id: current_user.id, text: strip_newlines)
+    @curr_poi = Poi.find(@poi.to_i)
+    comments = @curr_poi.comments.all
+    # respond_with(@comment, location: '/pois/' + @poi + '/comments')
     respond_to do |format|
       format.js
     end
-    #   respond_to do |format|
-    #   msg = { :status => "ok", :message => "Success!", :id => comment.id }
-    #   format.json  { render :json => msg } # don't do msg.to_json
-    #   end
-		# head :ok
-		# ajax
   end
 
   private

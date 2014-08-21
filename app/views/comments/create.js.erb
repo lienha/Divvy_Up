@@ -1,1 +1,2 @@
-page.insert_html :bottom, 'comments_container<%=@poi%>', partial: 'comments/comment', object: comment
+$("#comments_container<%= @poi%>").append('<article class="comment"><%= @comment.text %><br><small><%= @comment.user.username %></small></article>')
+$("#comments_container<%= @poi%> form").find('textarea').val('');
