@@ -1,5 +1,4 @@
-<li class="slider__item" style="background-image: url(/assets/architecture_tour_slide.jpg); background-repeat: no-repeat; background-);
-    background-repeat: no-repeat; background-size: cover;">
+<li class="slider__item" style="background-image: url(/assets/architecture_tour_slide.jpg); background-repeat: no-repeat; background-); background-repeat: no-repeat; background-size: cover;">
   <div class="map_div_placeholder">
     <div class="map_placeholder"></div>
   </div>
@@ -14,6 +13,9 @@
       <input type="button" value="Show my nearest Divvy!" class="my_divvy" />
       <small><a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a></small>
     </p>
+    <div id="duration">Duration: </div>
+    <div id="distance">Distance: </div>
+
     <p><%= @tour.long_description %></p>
   </div>
 </li>
@@ -39,6 +41,7 @@
   </div>
 </li>
 <% end %>
+
 <script>
 !function(d,s,id){
   var js,fjs=d.getElementsByTagName(s)[0];

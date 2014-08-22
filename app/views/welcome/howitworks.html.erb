@@ -1,23 +1,75 @@
-<div class="container">
-  <h1>How It Works</h1>
 
-  <div class="row">
-    Divvy is a new bike sharing system featuring thousands of bikes at hundreds of stations from Andersonville to Hyde Park, available 24/7, 365 days a year. Each station has a touchscreen kiosk, station map, and a docking system that releases bikes using a member key or ride code. You can purchase a 24-Hour Pass from any Divvy station. For more information see the <a href='https://www.divvybikes.com/how-it-works' class="reverse_link">Divvy site</a>
-  </div><br/>
+<%= javascript_include_tag 'jquery.glide' %>
+<script type="text/javascript">
+  $(function(){
+    $('.slider').glide({
+        arrows: 'body',
+        autoplay: false,
+        navigation: 'body',
+        circular: false
+        });
+  });
+</script>
 
-  <div class="row">
-    On our site, you can select
-    from a variety of tours of Chicago that can be easily taken on the city's new Divvy bikes.
-    Each tour has a route to ride, and points of interest to see. Clicking on a point of interest
-    brings up information about that location. The map also has the location of
-    the nearest Divvy stations to the tour stops, with information about the availability of bikes and open spots for
-    docking your bikes when your tour is finished. Remember, you can only ride a bike for 30 minutes before it has to be turned in. When that happens, just exchange it for another bike, and continue your tour.
-  </div><br />
+<div class="slider">
+  <ul class="slider__wrapper">
+      <li class="slider__item">
+        <div class="presentation">
+          <h1>Team Divvy Up</h1>
+          <h3>Intention</h3>
+          <p>Lorem ipsum Dolore laborum culpa enim velit quis consequat aliqua consectetur occaecat voluptate consequat dolore ea incididunt qui elit sint reprehenderit nulla eiusmod eu labore Excepteur pariatur velit sed ullamco.</p>
+          <h3>What we built</h3>
+          <p>Lorem ipsum Veniam ex pariatur in ad nulla cillum ad in ex culpa id ad minim minim consectetur tempor consectetur laboris reprehenderit Duis ex labore sit ea in irure ut eu in proident dolor veniam fugiat veniam consequat culpa consequat esse nisi.</p>
+          <h3>Initial Plan</h3>
+          <ul>
+            <li>Options</li>
+            <li>What we dropped</li>
+            <li>What we added</li>
+          </ul>
+        </div>
+      </li>
 
-  <div class="row">
-    If you sign up, you can comment on the tour stops we have, recommend new stops and up vote the stops that others have recommended.
-  </div><br />
+      <li class="slider__item">
+        <div class="presentation">
+          <h1>Jenn's Slide</h1>
+          <h3>Topic1</h3>
+          <p>Lorem ipsum Sunt laboris ea ullamco ex eu velit eu exercitation enim consectetur eu fugiat ex laborum ut deserunt tempor qui incididunt id veniam aliquip nulla qui ut.</p>
+          <h3>Topic2</h3>
+          <p>Lorem ipsum Sunt laboris ea ullamco ex eu velit eu exercitation enim consectetur eu fugiat ex laborum ut deserunt tempor qui incididunt id veniam aliquip nulla qui ut.</p>
+        </div>
+      </li>
 
-  
+      <li class="slider__item">
+        <div class="presentation">
+          <h1></h1>
+          <h3>Topic1</h3>
+          <p>Lorem ipsum Sunt laboris ea ullamco ex eu velit eu exercitation enim consectetur eu fugiat ex laborum ut deserunt tempor qui incididunt id veniam aliquip nulla qui ut.</p>
+          <h3>Topic2</h3>
+          <p>Lorem ipsum Sunt laboris ea ullamco ex eu velit eu exercitation enim consectetur eu fugiat ex laborum ut deserunt tempor qui incididunt id veniam aliquip nulla qui ut.</p>
+        </div>
+      </li>
+      <li class="slider__item">
+        <div class="presentation">
+          <h1>General Intentions</h1>
+          <h3>Design</h3>
+          <ul>
+            <li>Color Scheme</li>
+            <li>Vide.js</li>
+            <li>Glide.js</li>
+          </ul>
+          <br>
+          <h3>Difficulties</h3>
+          <ul>
+            <li>jQuery</li>
+            <li>GMaps.js</li>
+            <li>Asynchronous Loading</li>
+          </ul>
+        </div>
+      </li>
+      <li class="slider__item">
+        <div class="presentation">
+          <h1>Questions?</li>
+        </div>
+      </li>
+  </ul>
 </div>
-
