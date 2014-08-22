@@ -306,14 +306,14 @@ p label {
 
 .presentation{
   width: 80%;
-  margin: 10px auto;
+  margin: 30px auto;
   padding: 30px;
   height: 100%;
   text-align: center;
   z-index: 1;
 }
 .presentation h1{
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   font-weight: 700;
   font-family: 'Audiowide', cursive;
 }

@@ -6,7 +6,7 @@
   $(function(){
     $('.slider__wrapper').html('<%= escape_javascript(render partial:"slide" ) %>');
     $('.slider').glide({
-        arrows: 'body',
+        arrows: false,
         autoplay: false,
         navigation: 'body',
         circular: false

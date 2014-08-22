@@ -1,4 +1,6 @@
-<li class="slider__item" style="background-image: url(/assets/architecture_tour_slide.jpg); background-repeat: no-repeat; background-); background-repeat: no-repeat; background-size: cover;">
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<li class="slider__item" style="background-image: url(/assets/architecture_tour_slide.jpg); background-repeat: no-repeat; background-);
+    background-repeat: no-repeat; background-size: cover;">
   <div class="map_div_placeholder">
     <div class="map_placeholder"></div>
   </div>
@@ -11,17 +13,16 @@
     <br>
     <p>
       <input type="button" value="Show my nearest Divvy!" class="my_divvy" />
-      <small><a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a></small>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
     </p>
-    <div id="duration">Duration: </div>
-    <div id="distance">Distance: </div>
 
     <p><%= @tour.long_description %></p>
   </div>
 </li>
 
 <% @pois.each do |poi| %>
-<li class="slider__item">
+<li class="slider__item" style="background-image: url(<%= poi.image %>); background-repeat: no-repeat; background-);
+    background-repeat: no-repeat; background-size: cover;">
   <div class="map_div_placeholder">
     <div class="map_placeholder">
 
@@ -42,12 +43,3 @@
 </li>
 <% end %>
 
-<script>
-!function(d,s,id){
-  var js,fjs=d.getElementsByTagName(s)[0];
-  if(!d.getElementById(id)){
-    js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";
-    fjs.parentNode.insertBefore(js,fjs);
-  }
-}(document,"script","twitter-wjs");
-</script>
