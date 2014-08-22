@@ -116,7 +116,7 @@ function loader(){
       strokeColor: "rgba(255,180,0,0.8)",
       strokeWeight: 6
       },
-    suppressMarkers: false,
+    suppressMarkers: true,
     geodesic: true,
     draggable: true,
     markerOptions: {
