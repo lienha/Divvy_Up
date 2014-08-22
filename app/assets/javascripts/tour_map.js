@@ -8,6 +8,7 @@ var poi_array = [];
 var map;
 var total_stations_info = [];
 var tour_center;
+var infowindow;
 var close_all_info_windows = function(){
   if (total_stations_info.length > 0){
     for (x = 0; x< total_stations_info.length ; x++){
@@ -36,19 +37,22 @@ function handleNoGeolocation(errorFlag) {
     content: content
   };
 
-  var infowindow = new google.maps.InfoWindow(options);
+  infowindow = new google.maps.InfoWindow(options);
   map.setCenter(options.position);
+
 }
 
 
 function loader(){
+
   function get_nearest_station(pos){
     console.log(pos);
     $.ajax({url:"http://shrouded-beach-2183.herokuapp.com/stations/nearby",
       data:{
       lat: pos.k,
       lon: pos.B,
-      max_stations: 1
+      max_stations: 1,
+      prefer: 'bikes'
       },
       type: "GET",
       dataType: "json",
@@ -72,6 +76,9 @@ function loader(){
         google.maps.event.addListener(nearest_station, 'click', function(){
           nearest_station_info.open(map, nearest_station);
         });
+        google.maps.event.addListener(map, 'click', function(){
+          nearest_station_info.close();
+        })
         var directionsRequest = {
           origin: pos,
           destination: new google.maps.LatLng(json.geometry.coordinates[1], json.geometry.coordinates[0]),
@@ -109,9 +116,13 @@ function loader(){
       strokeColor: "rgba(255,180,0,0.8)",
       strokeWeight: 6
       },
-    suppressMarkers: true,
+    suppressMarkers: false,
     geodesic: true,
-    draggable: true
+    draggable: true,
+    markerOptions: {
+      crossOnDrag: true,
+      size: new google.maps.Size(1, 1)
+    }
   });
 
   var center;
@@ -195,10 +206,7 @@ function loader(){
           stop_marker_jump();
           markers_and_infos['marker'][index].setAnimation(google.maps.Animation.BOUNCE);
         });
-        google.maps.event.addListener(map, 'click', function(){
-          glide.jump(1);
-          stop_marker_jump();
-        });
+
       });
       $.each(json_loc.pois, function(index, value){
     if (index !== 0 || index !== json_loc.pois.length -1){
@@ -225,7 +233,7 @@ function loader(){
 
 
   });
-  $('#my_divvy').click(function(){
+  $('.my_divvy').click(function(){
     if(navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
       function(position) {
@@ -238,6 +246,9 @@ function loader(){
         });
         map.setCenter(pos);
         get_nearest_station(pos);
+        google.maps.event.addListener(map, 'click', function(){
+          current_loc_info.close();
+        });
       }, function() {
         handleNoGeolocation(true);
       });
@@ -246,7 +257,16 @@ function loader(){
       handleNoGeolocation(false);
     }
   });
-
+  google.maps.event.addListener(map, 'click', function(){
+          glide.jump(1);
+          stop_marker_jump();
+          close_all_info_windows();
+        });
+  $('.tour_desc').click(function(){
+    glide.jump(1);
+    stop_marker_jump();
+    close_all_info_windows();
+  });
 
 }
 

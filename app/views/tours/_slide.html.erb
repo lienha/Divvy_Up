@@ -7,10 +7,11 @@
   <div class="elem">
     <h1><%= @tour.name %></h1>
 
-    <%= link_to "Recommend Stops", tour_recommendations_path(@tour), class:"recom" %><br>
+    <%= link_to "Recommend Stops", tour_recommendations_path(@tour), class:"recom" %>
+    <br>
     <br>
     <p>
-      <input type="button" value="Show my nearest Divvy!" id="my_divvy" />
+      <input type="button" value="Show my nearest Divvy!" class="my_divvy" />
     </p>
     <p><%= @tour.long_description %></p>
   </div>
@@ -25,6 +26,10 @@
   </div>
   <div id="elem<%=poi.id%>" class="elem">
     <h1><%= poi.name %></h1>
+    <p>
+      <input type="button" value="Show my nearest Divvy!" class="my_divvy" />
+      <input type="button" value="Back to Tour Description" class="tour_desc" />
+    </p>
     <p><%= poi.description %></p>
       <div id="comments_container<%= poi.id %>">
       <%= render partial: "comments/form", locals:{poi: poi} %>
