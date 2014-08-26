@@ -1,5 +1,6 @@
 <div class="form_container">
 <h3>Recommended Stops for the <%= @tour.name %></h3>
+<a href=# onclick="go_to(<%=@tour.id%>)">Back</a>
 
 <% if current_user %>
   <%= form_for(:recommendation, url: "/tours/#{@tour.id}/recommendations") do |f| %>
@@ -43,3 +44,8 @@
 <% end %>
 
 </div>
+<script type="text/javascript">
+  function go_to(page) {
+    window.open('/tours/' + page, "_self");
+  }
+</script>
