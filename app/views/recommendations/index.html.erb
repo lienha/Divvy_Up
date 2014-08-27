@@ -33,11 +33,11 @@
         <%= raw(r.text.gsub(/\n+/, "<br/>")) %><br>
         <small><%= r.user.username %> <%= r.created_at %></small>
         <% if current_user %>
-        <small><%= link_to image_tag("thumbs_up.png"), recommendation_votes_path(r), method: :post %> </small>
+     <small ><%= link_to image_tag("thumbs_up.png"), recommendation_votes_path(r), remote: true, method: :post, class: "thumbs_up", id: "rec_#{r.id}" %> </small>
         <% else %>
         <small>Please <%= link_to 'signin', signin_path %> or <%= link_to 'signup', signup_path %> to vote</small>
         <% end %>
-        <small> + <%= Vote.where(recommendation_id: r.id).sum("value") %> </small>
+        <small> + <span id="vote_<%=r.id%>"> <%= Vote.where(recommendation_id: r.id).sum("value")%> </span> </small>
       </article>
     <% end %>
   </div>
@@ -49,3 +49,4 @@
     window.open('/tours/' + page, "_self");
   }
 </script>
+
