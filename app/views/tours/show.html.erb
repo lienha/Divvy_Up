@@ -1,173 +1,23 @@
 
+<%= javascript_include_tag 'jquery.glide' %>
 
-    <%= javascript_include_tag 'gmaps', "data-turbolinks-track" => true %>
-    <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/src/infobox.js"></script>
-    <%= javascript_include_tag 'jquery.glide' %>
-    
-  <script>
-    var directionsService = new google.maps.DirectionsService();
-    var directionsDisplay;
-    var total_stations_info = [];
-
-    function close_all_info_windows(){
-      for (x=0; x < total_stations_info.length; x++){
-        total_stations_info[x].close();
-      }
-    }
-
-    $(document).ready(function(){
-
-      var slider_content = [];
-      <% @pois.each do |l| %>
-      slider_content.push('<li class="slider__item"><div class="map_div_placeholder"><div class="map_placeholder"></div></div><div class="elem"><h1><%= l.name %></h1><p><%= l.description %></p><div class="comment_container"><%= escape_javascript(render partial: "comments/form", locals:{poi: l}) %><%= render partial: "comments/comment", locals:{poi: l}%></div></div></li>')
-      <%end %>
-
-      $('.slider__wrapper').append(slider_content.join(''));
-      $('.slider').glide({
-          arrows: 'body',
-          autoplay: false,
-          navigation: 'body'
-          });
-        directionsDisplay = new google.maps.DirectionsRenderer({
-          polylineOptions: {
-            strokeColor: "rgba(255,180,0,0.8)"
-            ,strokeWeight: 7
-            ,geodesic: true
-          }
-
-          ,draggable: true
-          ,suppressMarkers: true});
-        var infoWindow;
-        var center = new google.maps.LatLng(<%= JSON.parse(@tour.center, {symbolize_names: true})[:lat]%>, <%= JSON.parse(@tour.center, {symbolize_names:true})[:lng]%>)
-        var mapOptions = {
-                zoom:<%= @tour.zoom %>,
-                center: center,
-                zoomControl: true
-              };
-        var map = new google.maps.Map(document.getElementById('map'),mapOptions);
-
-        var poi_arr = []
-        var start =  new google.maps.LatLng(<%= JSON.parse(@pois.first.location, {symbolize_names: true})[:lat]%>, <%= JSON.parse(@pois.first.location, {symbolize_names:true})[:lng]%>);
-        var end = new google.maps.LatLng(<%= JSON.parse(@pois.last.location, {symbolize_names: true})[:lat]%>, <%= JSON.parse(@pois.last.location, {symbolize_names:true})[:lng]%>);
-        var waypts = [];
-        <%@pois.each do |x| %>
-        <%unless @pois.first == x || @pois.last == x  %>
-          waypts.push({
-            location:new google.maps.LatLng(<%= JSON.parse(x.location, {symbolize_names: true})[:lat]%>, <%= JSON.parse(x.location, {symbolize_names:true})[:lng]%>),
-            stopover: false})
-          <%end%>
-        <% end %>
-
-        var request = {
-          origin: start,
-          destination: end,
-          waypoints: waypts,
-          optimizeWaypoints: true,
-          travelMode: google.maps.TravelMode.BICYCLING
-        };
-        directionsService.route(request, function(response, status) {
-          if (status == google.maps.DirectionsStatus.OK) {
-            directionsDisplay.setDirections(response);
-          }
-        })
-        var counter = 1;
-
-        var glide = $('.slider').glide().data('api_glide');
-        <% @pois.each_with_index do |l, i| %>
-        //DIVVY STATIONS===================================
-        counter ++;
-        $.ajax({url:"http://shrouded-beach-2183.herokuapp.com/stations/nearby",
-            data: {lat: <%= JSON.parse(l.location, {symbolize_names: true})[:lat] %>,
-            lon: <%= JSON.parse(l.location, {symbolize_names: true})[:lng] %>},
-            type: "GET",
-            dataType: "json",
-            success: function(json){
-            var created_station_ids = [];
-            var stations = []
-            var stations_info = []
-              for (var i = json.length - 1; i >= 0; i--) {
-                if (created_station_ids.indexOf(json[i].properties.id) === -1) {
-                  stations[i] = new google.maps.Marker({
-                    map: map,
-                    position: new google.maps.LatLng(json[i].geometry.coordinates[1], json[i].geometry.coordinates[0]),
-                    visible: true,
-                    zIndex: 1000,
-                    icon: '/assets/map-icon-inservice.png',
-                    animation: google.maps.Animation.DROP
-                  });
-                }
-                created_station_ids.push(json[i].properties.id);
-                stations_info[i] = new google.maps.InfoWindow();
-                stations_info[i].setOptions({
-                    content: 'Station: ' + json[i].properties.stationName + ' <br> Available Bikes: ' + json[i].properties.availableBikes + '<br> Available Docks: ' + json[i].properties.availableDocks, zIndex: 1000,
-                    height: 180,
-                    zIndex: 102,
-                    position: new google.maps.LatLng(json[i].geometry.coordinates[1], json[i].geometry.coordinates[0])
-                  });
-                total_stations_info[total_stations_info.length] = stations_info[i];
-              }
-              stations.forEach(function(loc, ind){
-                google.maps.event.addListener(loc, 'click', function(){
-                  close_all_info_windows();
-                  stations_info[ind].open(map, loc);
-                });
-              })
-            }
-          });
-          var marker<%= l.id %> = new google.maps.Marker({
-            position: new google.maps.LatLng(<%= JSON.parse(l.location, {symbolize_names: true})[:lat]%>, <%= JSON.parse(l.location, {symbolize_names:true})[:lng]%>),
-            title: "<%= l.name %>",
-            id: "<%= l.id %>",
-            visible: true,
-            zIndex: 102
-
-            }
-          )
-          marker<%= l.id %>.setMap(map);
-
-
-          var info<%= l.id %> = new google.maps.InfoWindow();
-          // var infoLoc<%= l.id %> = new google.maps.LatLng(<%= JSON.parse(l.location, {symbolize_names: true})[:lat] %>,<%= JSON.parse(l.location, {symbolize_names: true})[:lng] %>);
-          var info<%= l.id %> = new InfoBox({
-            content: '<font size="1em" color="steelblue"><strong><%=l.name%></strong></font><br>',
-            // position: infoLoc<%= l.id %>,
-            zIndex: null,
-            position: new google.maps.LatLng(<%= JSON.parse(l.location, {symbolize_names: true})[:lat]%>, <%= JSON.parse(l.location, {symbolize_names:true})[:lng]%>),
-            boxStyle:{
-                    border: '1px solid steelblue'
-                    ,borderRadius: '10px'
-                    ,textAlign: 'center'
-                    ,opacity: 0.9
-                    ,width: '120px'
-                    ,background: "#fff"
-                   },
-
-            pixelOffset: new google.maps.Size(0, -20),
-            closeBoxMargin: "0",
-            alignBottom: true,
-            infoBoxClearance: new google.maps.Size(1, 1),
-            pane: 'floatPane'
-
-
-          })
-
-          google.maps.event.addListener(marker<%=l.id%>, 'click', function() {
-            glide.jump(<%=i+2%>);
-          });
-
-        <% end %>
-        directionsDisplay.setMap(map);
-
-
-      }
-    );
-    </script>
+<%= javascript_include_tag 'tour_map' %>
+<script type="text/javascript">
+  $(function(){
+    $('.slider__wrapper').html('<%= escape_javascript(render partial:"slide" ) %>');
+    $('.slider').glide({
+        arrows: false,
+        autoplay: false,
+        navigation: 'body',
+        circular: false
+        });
+  });
+</script>
   <div class="map_div">
     <div id="map"></div>
   </div>
   <div class="slider">
     <ul class="slider__wrapper">
-      <li class="slider__item"><div class="map_div_placeholder"><div class="map_placeholder"></div></div><div class="elem"><h1><%= @tour.name %></h1><p><%=@tour.long_description%></p>
-        </div></li>
+
     </ul>
   </div>

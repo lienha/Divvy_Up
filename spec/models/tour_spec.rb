@@ -3,8 +3,8 @@ require 'spec_helper'
 describe Tour do
   before(:each) do
     @user = User.new(email: "david@david.com", password: "divvyup", username: "david", password_confirmation: "divvyup")
-    @tour = Tour.new(creator: @user, name: "The Walk of Shame", center: {lat:41.8337329, lng:-87.7321555}.to_json)
-    @poi = Poi.new( name: "Dev Bootcamp", description: "Learn programming", location: {lat:41.889911, lng:-87.637657}.to_json, image: "dbc.jpg")
+    @tour = Tour.new(creator: @user, name: "The Walk of Shame", lat:41.8337329, lng:-87.7321555)
+    @poi = Poi.new( name: "Dev Bootcamp", description: "Learn programming", lat:41.889911, lng:-87.637657, image: "dbc.jpg")
   end
 
   describe 'name should..' do
@@ -24,12 +24,12 @@ describe Tour do
 
   describe 'center location should..' do
     it 'be mandatory' do
-      @tour.center = nil
+      @tour.lat = nil
       expect(@tour.save).to be false
     end
     it 'be in the form of json after save' do
       @tour.save
-      expect(@tour.center).to eq '{"lat":41.8337329,"lng":-87.7321555}'
+      expect(@tour.lat).to eq 41.8337329
     end
   end
 

@@ -1,24 +1,33 @@
 
 <div class="vid">
-<div class="sub_title">
-  Combine the adventure of a Divvy bike ride
-  with the sights of Chicago. We have a selection of self-guided bike
-  tours you are bound to enjoy.
+  <div id="title">
+  <h1 style="font-family: 'Audiowide', cursive;"><img src="/assets/logo.svg" width="50%" height="50%"/>Up Tours</h1>
+  </div>
+  <div class="sub_title">
+    Combine the adventure of a Divvy bike ride
+    with the sights of Chicago. We have a selection of self-guided bike
+    tours you are bound to enjoy.
+  </div>
+
+  <div class="intro">
+
+    <ul class="tour_list">
+    <% Tour.all.each do |tour| %>
+      <li><h4><a href=# onclick="go_to(<%=tour.id%>)"><%= tour.name %></a></h4></li>
+      <p><%= tour.short_description %></p>
+    <% end %>
+    </ul>
+  </div>
 </div>
 
-<div class="intro">
-
-  <ul class="tour_list">
-  <% @tours.each do |tour| %>
-    <li><h4><a href="/tours/<%=tour.id%>"><%= tour.name %></a></h4></li>
-    <p class="short_desc"><%= tour.short_description %></p>
-  <% end %>
-  </ul>
-</div>
-</div>
 
 <%= javascript_include_tag 'jquery.vide.min'%>
 <script type="text/javascript">
+
+  function go_to(page) {
+    window.open('/tours/' + page, "_self");
+  }
+
   $(function(){
     $('.vid').ready(function(){
       $('.vid').vide('/assets/bike.mp4',{playbackRate: 1,
@@ -27,5 +36,4 @@
         autoplay: true});
     });
   });
-
 </script>

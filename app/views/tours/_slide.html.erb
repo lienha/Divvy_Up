@@ -1,0 +1,45 @@
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<li class="slider__item" style="background-image: url(/assets/architecture_tour_slide.jpg); background-repeat: no-repeat; background-);
+    background-repeat: no-repeat; background-size: cover;">
+  <div class="map_div_placeholder">
+    <div class="map_placeholder"></div>
+  </div>
+
+  <div class="elem">
+    <h1><%= @tour.name %></h1>
+
+    <%= link_to "Recommend Stops", tour_recommendations_path(@tour), class:"recom" %>
+    <br>
+    <br>
+    <p>
+      <input type="button" value="Show my nearest Divvy!" class="my_divvy" />
+      <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
+    </p>
+
+    <p><%= @tour.long_description %></p>
+  </div>
+</li>
+
+<% @pois.each do |poi| %>
+<li class="slider__item" style="background-image: url(<%= poi.image %>); background-repeat: no-repeat; background-);
+    background-repeat: no-repeat; background-size: cover;">
+  <div class="map_div_placeholder">
+    <div class="map_placeholder">
+
+    </div>
+  </div>
+  <div id="elem<%=poi.id%>" class="elem">
+    <h1><%= poi.name %></h1>
+    <p>
+      <input type="button" value="Show my nearest Divvy!" class="my_divvy" />
+      <input type="button" value="Back to Tour Description" class="tour_desc" />
+    </p>
+    <p><%= poi.description %></p>
+      <div id="comments_container<%= poi.id %>">
+      <%= render partial: "comments/form", locals:{poi: poi} %>
+      <%= render partial: "comments/comment", collection: poi.comments%>
+      </div>
+  </div>
+</li>
+<% end %>
+

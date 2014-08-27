@@ -1,25 +1,71 @@
 
+<%= javascript_include_tag 'jquery.glide' %>
+<script type="text/javascript">
+  $(function(){
+    $('.slider').glide({
+        arrows: 'body',
+        autoplay: false,
+        navigation: 'body',
+        circular: false
+        });
+  });
+</script>
 
-<div class="form_container">
-<h1>How It Works</h1>
+<div class="slider">
+  <ul class="slider__wrapper">
+      <li class="slider__item">
+        <div class="presentation">
+          <h1>Team Divvy Up</h1>
+          <br><br><br>
+          <h3>Overview</h3>
+          <br><br>
+          <h3>Work Flow</h3>
+        </div>
+      </li>
 
-<div class="row">
-  <!-- <div class="small-6 columns"> -->
-    You can select
-    from a variety of tours of Chicago that can be easily taken on the city's new Divvy bikes.
-    Each tour has a route to ride, and points of interest to see. Clicking on a point of interest
-    brings up information about that location. The map also has the location of
-    the nearest Divvy stations to the tour stops, with information about the availability of bikes and open spots for
-    docking your bikes when your tour is finished. Remember, you can only ride a bike for 30 minutes before it has to be turned in. 
-  <!-- </div> -->
-</div><br />
-
-<div class="row">
-  <!-- <div class="small-6 columns"> -->
-    Divvy is a new bike sharing system featuring thousands of bikes at hundreds of stations from Andersonville to Hyde Park, available 24/7, 365 days a year. Each station has a touchscreen kiosk, station map, and a docking system that releases bikes using a member key or ride code. You must be 16 years or older to ride Divvy. For more information see the <a href='https://www.divvybikes.com/how-it-works'>Divvy site</a>
-  <!-- </div> -->
+      <li class="slider__item">
+        <div class="presentation">
+          <h1>Process</h1>
+          <h3>MVP</h3>
+          <ul>
+            <li>Tour Guide</li>
+          </ul>
+          <h3>User Feedback</h3>
+          <ul>
+            <li>Intuitive UI</li>
+            <li>Visibility</li>
+          </ul>
+          <h3>Technology Insights</h3>
+          <ul>
+            <li>Geolocation</li>
+            <li>Divvy API</li>
+            <li>Rails</li>
+          </ul>
+        </div>
+      </li>
+      <li class="slider__item">
+        <div class="presentation">
+          <h1>General Intentions</h1>
+          <h3>Design</h3>
+          <ul>
+            <li>Benchmark</li>
+            <li>Color Scheme</li>
+            <li>Vide.js</li>
+            <li>Glide.js</li>
+          </ul>
+          <br>
+          <h3>Difficulties</h3>
+          <ul>
+            <li>jQuery</li>
+            <li>GMaps.js</li>
+            <li>Asynchronous Loading</li>
+          </ul>
+        </div>
+      </li>
+      <li class="slider__item">
+        <div class="presentation">
+          <h1>Questions?</li>
+        </div>
+      </li>
+  </ul>
 </div>
-
-
-</div>
-

@@ -1,0 +1,18 @@
+
+<% @pois.each do |poi| %>
+<li class="slider__item">
+  <div class="map_div_placeholder">
+    <div class="map_placeholder">
+
+    </div>
+  </div>
+  <div class="elem">
+    <h1><%= poi.name %></h1>
+    <p><%= poi.description %></p>
+    <div id="comment_container">
+      <%= escape_javascript(render partial: "comments/form", locals:{poi: poi}) %>
+      <%= render partial: "comments/comment", locals:{poi: poi}%>
+    </div>
+  </div>
+</li>
+<% end %>

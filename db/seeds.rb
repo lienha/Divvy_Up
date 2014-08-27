@@ -21,35 +21,35 @@ admin = User.create( username: 'admin', email: 'admin@gmail.com', password: 'pas
 
 
 Tour.create(name: 'Architecture Tour', creator_id: admin.id, zoom: 17,
-            center: {lat: 41.8887255, lng: -87.6270584}.to_json,
+             lat: 41.8887255, lng: -87.6270584,
             short_description: "Get great views of Chicago architecture and outdoor art installations in this tour.",
             long_description: "Chicago is world-famous for its incredible, recognizable skyline. Get great views of Chicago architecture with Tribune Tower which won the most beautiful and distinctive office building in the world in 1922, Wrigley Building is one of the original business addresses, the luxurious Trump Tower, and Marina City with two 60-story towers which was the biggest ever built in concrete and its shape was in contrast with the contemporary architectural concepts of straight lines and cubical apartment buildings. ")
 
 Tour.create(name: 'Sculpture Tour', creator_id: admin.id, zoom: 15,
-            center: {lat: 41.8887255, lng: -87.6270584}.to_json,
+             lat: 41.8887255, lng: -87.6270584,
             short_description: "Visit the endless collections at the Art Institute and many public art sculptures by the world's most famous modern artists like Picasso and Calder.",
             long_description: "From Jean Dubuffet's Monument With Standing Beast to Anish Kapoor's Cloud Gate, this  tour winds through down town Chicago, passing some of the city's landmark buildings and stopping at monumental sculptures commissioned from some of the most important artists of their time. There are endless collections at the Art Institute and many overlook the world-class collection of public art on display throughout Chicago's commercial center. The Loop is a veritable open air museum of sculptures by the world's most famous modern artists (Picasso, Calder, Miro, Lewitt, etc.), and it's all, of course, free. These monumental sculptures are a both part of Chicago's distinctive character and a major source of civic pride. Take this tour in the morning or early afternoon, and stop at one of the many coffee houses or cafes along the way for a morning pick-me-up or mid-day meal.")
 
-Tour.create(name: 'Crime and Mob Tour', creator_id: admin.id, zoom: 15,
-            center: {lat: 41.92517580576991, lng: -87.6439905166626}.to_json,
+Tour.create(name: 'Gangster Tour', creator_id: admin.id, zoom: 15,
+             lat: 41.92517580576991, lng: -87.6439905166626,
             short_description: "Explore the city’s most famous crime scenes.",
             long_description: "Chicago is full of crime scenes and historical landmarks made famous by our city’s own mobs and gangsters. In this tour, explore the city’s most famous crime scenes as you investigate stories about Al Capone, The Untouchables, the Chicago Mob and their and mischievous activities.")
 
 Tour.create(name: 'Film Tour', creator_id: admin.id, zoom: 14,
-            center: {lat: 41.8887255, lng: -87.6270584}.to_json,
+             lat: 41.8887255, lng: -87.6270584,
             short_description: "Explore city's famous movie scenes and celebrity hangouts.",
             long_description: "Explore city's famous movie scenes and celebrity frequencings. Start your tour at Union Station, then to The Marina City which was a Local television station WFLD, (FOX Channel 32) had its studios and transmitter for eighteen years until they were bought by Metromedia. WLS-TV (ABC Channel 7) kept its transmitter atop Marina City until the Willis Tower (formerly known as Sears Tower) was completed. Or the Pump Room, a restaurant located in the Public Chicago Hotel in Chicago's Gold Coast area. The restaurant served a number of celebrities who were regular customers and has been written about in books and articles.")
 
 # because these tours do not have POI, they crash the app.
 # Tour.create(name: 'City Tour', creator_id: admin.id, zoom: 17,
-#   center: {lat: 41.8887255, lng: -87.6270584}.to_json)
+#    lat: 41.8887255, lng: -87.6270584)
 
 # Tour.create(name: 'Grand Tour', creator_id: admin.id, zoom: 17,
-#   center: {lat: 41.8887255, lng: -87.6270584}.to_json)
+#    lat: 41.8887255, lng: -87.6270584)
 
 
 tour1 = admin.tours.first
-tour2 = Tour.find_by(name: 'Crime and Mob Tour')
+tour2 = Tour.find_by(name: 'Gangster Tour')
 tour3 = Tour.find_by(name: 'Film Tour')
 tour4 = Tour.find_by(name: 'Sculpture Tour')
 
@@ -57,92 +57,96 @@ tour4 = Tour.find_by(name: 'Sculpture Tour')
 Poi.create( name: 'Tribune Tower', tour_id: tour1.id,
             description: 'The Tribune Tower is a neo-Gothic building located at 435 North Michigan Avenue in Chicago, Illinois, USA. It is the home of the Chicago Tribune and Tribune Company.',
             image: '/assets/tribunetower2.jpg',
-            location: {lat: 41.890401, lng: -87.623585}.to_json)
+            lat: 41.890401, lng: -87.623585)
 
 Poi.create( name: 'Wrigley Building', tour_id: tour1.id,
             description: "The Wrigley Building is a skyscraper located directly across Michigan Avenue from the Tribune Tower on the Magnificent Mile. It was built to house the corporate headquarters of the Wrigley Company.",
             image: "/assets/wrigley.jpg",
-            location: {lat: 41.889435, lng: -87.624994}.to_json)
+            lat: 41.889435, lng: -87.624994)
 
 Poi.create( name: 'Trump Tower', tour_id: tour1.id,
           description: "The Trump International Hotel and Tower, also known as Trump Tower Chicago and Trump Tower, is a skyscraper condo-hotel in downtown Chicago, Illinois. The building, named after billionaire real estate developer Donald Trump",
           image: "/assets/trump_tower.jpg",
-          location: {lat: 41.888868, lng: -87.626394}.to_json)
+          lat: 41.888868, lng: -87.626394)
 
 
 Poi.create( name: 'Marina City', tour_id: tour1.id,
             description: "Marina City is a mixed-use residential/commercial building complex that occupies an entire city block on State Street in Chicago, Illinois. The complex consists of two corncob-shaped, 587-foot (179 m), 65-story towers.",
             image: "/assets/marina_city.jpg",
-            location: {lat: 41.887986, lng: -87.628761}.to_json)
+            lat: 41.887986, lng: -87.628761)
 
 Poi.create( name: 'House of Blues', tour_id: tour1.id,
             description: "Top rock, blues & more play at this music club, beloved for its Sunday gospel brunches.",
             image: "/assets/houseofblues.jpg",
-            location: {lat: 41.888233, lng: -87.62913}.to_json)
+            lat: 41.888233, lng: -87.62913)
 
-Poi.create( name: 'Green Mill Jazz Club', tour_id: tour2.id,
-            description: "Once a favorite of Al Capone His favorite booth is still in the establishment located directly west of the short end of the bar. Capone and his men would sit here because it afforded clear views of both the front and back entrances to the establishment. It is rumored that there is still an access hatch to the tunnels located directly behind the long end of the bar that leads underneath the street to an adjacent building; this is how Capone was able to elude the authorities or the quasi detectives when he visited the Green Mill.",
-            image: "/assets/green_mill.jpg",
-            location: {lat: 41.969199, lng: -87.65989}.to_json)
+# Poi.create( name: 'Green Mill Jazz Club', tour_id: tour2.id,
+#             description: "Once a favorite of Al Capone His favorite booth is still in the establishment located directly west of the short end of the bar. Capone and his men would sit here because it afforded clear views of both the front and back entrances to the establishment. It is rumored that there is still an access hatch to the tunnels located directly behind the long end of the bar that leads underneath the street to an adjacent building; this is how Capone was able to elude the authorities or the quasi detectives when he visited the Green Mill.",
+#             image: "/assets/green_mill.jpg",
+#             lat: 41.969199, lng: -87.65989)
+Poi.create( name: 'S-M-G Garage', tour_id: tour2.id,
+            description: "Site of the St Valentine's Day Massacre, Chicago, Illinois. It happened on February 14, 1929, when seven members of the Bugs Moran gang were gunned down by members of the Al Capone gang. The victims were stood against a brick wall and shot.",
+            image: "/assets/st_valentines.jpg",
+            lat: 41.9207993, lng: -87.6375942)            
 Poi.create( name: 'John Barleycorn', tour_id: tour2.id,
             description: "Once a speakeasy, it appeared to be a Chinese laundry, but in reality bar patrons entered through a back entrance through the basement, where the liquor was carted in. The pub still honors its roots by displaying a woodcarving dating back to the speakeasy days.",
             image: "/assets/johnbarleycorn.jpg",
-            location: {lat: 41.9238545, lng: -87.6461116}.to_json)
+            lat: 41.9238545, lng: -87.6461116)
 Poi.create( name: 'Victory Gardens Theatre', tour_id: tour2.id,
             description: "Way back in the day it was known as the Biograph Theater. Legendary bank robber John Dillinger met his demise there in 1934 while attending a movie.",
             image: "/assets/victorygarden.jpg",
-            location: {lat: 41.926343, lng: -87.649788}.to_json)
+            lat: 41.926343, lng: -87.649788)
 
 Poi.create( name: 'Union Station', tour_id: tour3.id,
             description: "Union Station is a major railroad station that opened in 1925 in Chicago, replacing an earlier station built in 1881. It is the third-busiest rail terminal in the United States and is now the only intercity rail terminal in Chicago. It handles approximately 120,000 passengers on an average weekday and is one of Chicago’s most iconic structures, reflecting the city’s strong architectural heritage and historical achievements. Its facilities are mostly underground, buried beneath streets and skyscrapers.",
             image: "/assets/unionStation.jpg",
-            location: {lat: 41.878607, lng: -87.639408}.to_json)
+            lat: 41.878607, lng: -87.639408)
 
 Poi.create( name: 'Marina City', tour_id: tour3.id,
             description: "The Marina City complex was designed in 1959 by architect Bertrand Goldberg and completed in 1964 at a cost of $36 million. Local television station WFLD, (FOX Channel 32) had its studios and transmitter at Marina City for eighteen years until they were bought by Metromedia. WLS-TV (ABC Channel 7) kept its transmitter atop Marina City until the Willis Tower (formerly known as Sears Tower) was completed.",
             image: "/assets/marina_city.jpg",
-            location: {lat: 41.888064, lng: -87.628422}.to_json)
+            lat: 41.888064, lng: -87.628422)
 
 Poi.create( name: 'Pump Room', tour_id: tour3.id,
             description: "The Pump Room, established October 1, 1938, by Ernie Byfield, is a restaurant located in the Public Chicago Hotel, formerly The Ambassador East, in Chicago's Gold Coast area. The restaurant served a number of celebrities who were regular customers and has been written about in books and articles.",
             image: "/assets/pumproom.jpg",
-            location: {lat: 41.887937, lng: -87.629109}.to_json)
+            lat: 41.887937, lng: -87.629109)
 
 Poi.create( name: 'Cloud Gate', tour_id: tour3.id,
             description: "Cloud Gate is a public sculpture by Indian-born British artist Anish Kapoor, that is the centerpiece of AT&T Plaza at Millennium Park. Constructed between 2004 and 2006, the sculpture is nicknamed The Bean. The design was inspired by liquid mercury and the sculpture's surface reflects and distorts the city's skyline. Visitors are able to walk around and under Cloud Gate's 12-foot high arch.",
             image: "/assets/bean.jpg",
-            location: {lat: 41.882925, lng: -87.623315}.to_json)
+            lat: 41.882925, lng: -87.623315)
 
 
 Poi.create( name: 'Monument with Standing Beast', tour_id: tour4.id,
             description: "Monument with Standing Beast is a sculpture by Jean Dubuffet in front of James R. Thompson Center in the Loop community area of Chicago. It is based on Dubuffet's 1960 painting series Hourioupe. The sculpture and the series of figural and landscape designs it is a part of reflects his thoughts of earliest monumental commission.",
             image: "/assets/standingbeast.jpg",
-            location: {lat: 41.885063, lng: -87.631646}.to_json)
+            lat: 41.885063, lng: -87.631646)
 
 Poi.create( name: 'The Picasso', tour_id: tour4.id,
             description: "The Picasso is an untitled monumental sculpture by Pablo Picasso in Chicago, Illinois. The sculpture, dedicated on August 15, 1967, in Daley Plaza in the Chicago Loop, is 50 feet tall.",
             image: "/assets/picasso.jpg",
-            location: {lat: 41.883946, lng: -87.630197}.to_json)
+            lat: 41.883946, lng: -87.630197)
 
 Poi.create( name: 'Dawn Shadows', tour_id: tour4.id,
             description: "Located in Madison Plaza. Dawn Shadows is one of Louise Nevelson's signature large, monochromatic sculptures. Rendered in painted steel, this structure is inspired by Chicago's elevated train system, which passes by just a few feet away.",
             image: "/assets/dawnshadows.jpg",
-            location: {lat: 41.882253, lng: -87.634320}.to_json)
+            lat: 41.882253, lng: -87.634320)
 
 Poi.create( name: 'Flamingo', tour_id: tour4.id,
             description: "Flamingo, created by noted American artist Alexander Calder, is a 53-foot tall stabile located in the Federal Plaza in front of the Kluczynski Federal Building. Flamingo weighs 50 tons, is composed of steel, and is vermilion in color. Calder gave the stabile its color, which has come to be called 'Calder red', to offset it from the black and steel surroundings of nearby office buildings. The stabile is an art form which Calder pioneered.",
             image: "/assets/flamingo.jpg",
-            location: {lat: 41.878790, lng: -87.629677}.to_json)
+            lat: 41.878790, lng: -87.629677)
 
 Poi.create( name: 'Cloud Gate', tour_id: tour3.id,
             description: "Cloud Gate is a public sculpture by Indian-born British artist Anish Kapoor, that is the centerpiece of AT&T Plaza at Millennium Park. Constructed between 2004 and 2006, the sculpture is nicknamed The Bean. The design was inspired by liquid mercury and the sculpture's surface reflects and distorts the city's skyline. Visitors are able to walk around and under Cloud Gate's 12-foot high arch.",
             image: "/assets/bean.jpg",
-            location: {lat: 41.882925, lng: -87.623315}.to_json)
+            lat: 41.882925, lng: -87.623315)
 
 Poi.create( name: 'Bronze Lion', tour_id: tour4.id,
             description: "Edward Kemeys was an American sculptor. He is best known for his sculptures of animals, particularly the two bronze lions that mark the entrance to the Art Institute of Chicago.",
             image: "/assets/lion.jpg",
-            location: {lat: 41.879572, lng: -87.623705}.to_json)
+            lat: 41.879572, lng: -87.623705)
 
 Comment.create(poi_id: 1, user_id: users.sample.id,
                text: "Superb building with a real history. Just walk around the entire outside and see all the other incredible stones / pieces from other buildings. I love how Chicago has kept its history and its architecture intact for all to see and this building has to be one of the best. Great city.")

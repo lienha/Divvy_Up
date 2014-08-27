@@ -3,7 +3,8 @@ class CreateTours < ActiveRecord::Migration
     create_table :tours do |t|
       t.string :name
       t.integer :zoom, default: 12
-      t.string :center
+      t.decimal :lat,  precision: 12, scale: 6
+      t.decimal :lng, precision: 12, scale: 6
       t.integer :creator_id
 
       t.timestamps

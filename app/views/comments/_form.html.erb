@@ -1,8 +1,9 @@
 <% if current_user %>
-<%= form_for(:comment, url: poi_comments_path(poi.id)) do |f| %>
+<%= form_for :comment, url: poi_comments_path(poi.id), id: "com_form#{poi.id}" , remote: true do |f| %>
   <p>
     <%= f.hidden_field :poi_id, {value: poi.id} %>
-    <%= f.label :text, "Tell Us What You Think:" %><br>
+    <%= f.label :text, "Tell Us What You Think:" %>
+    <br>
     <%= f.text_area :text %>
   </p>
   <p>
@@ -10,20 +11,5 @@
   </p>
 <% end %>
 <% else %>
-	<p>Please <%=link_to "Sign In", signin_path, class: "button radius" %> or <%=link_to "Sign Up", signup_path, class: "button radius" %> to Comment</p>
-<% end %> 
-<script type="text/javascript">
-//  $("form").on( "submit", function( event ) { 
-//    event.preventDefault();
-//    var comment = $(this).serialize();
-//    $.ajax({url: "/pois/"+$('#comment_poi_id').val()+"/comments",
-//          data: comment, 
-//          type: POST,
-//          dataType: json,
-//          success: function { 
-//        $(comment).prependTo('.comment')}
-//        })
-//    // alert("stuff");
-//  })
-
-// </script>
+	<p>Please <%=link_to "Sign In", signin_path %> or <%=link_to "Sign Up", signup_path %> to Comment</p>
+<% end %>

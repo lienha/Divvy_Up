@@ -3,9 +3,8 @@ class Tour < ActiveRecord::Base
   has_many :pois
   has_many :recommendations
   has_many :comments, through: :pois
-  serialize :center, JSON
   validates :name, presence: true, length: {in: 2..20}
-  validates :center, presence: true
+  validates_presence_of :lat, :lng
   validates :creator, presence: true
 
 end

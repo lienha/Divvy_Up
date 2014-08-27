@@ -1,16 +1,15 @@
 class CommentsController < ApplicationController
-	# content_type :json
-
+	respond_to :json, :xml, :html
   def create
-    comment = Comment.create(poi_id: params[:poi_id], user_id: current_user.id, text: strip_newlines)
-    redirect_to (:back)
-    #   respond_to do |format|
-    #   msg = { :status => "ok", :message => "Success!", :id => comment.id }
-    #   format.json  { render :json => msg } # don't do msg.to_json
-    #   end
-		# head :ok
-		# ajax
-	end
+    @poi = params[:poi_id]
+    @comment = Comment.create(poi_id: @poi, user_id: current_user.id, text: strip_newlines)
+    @curr_poi = Poi.find(@poi.to_i)
+    comments = @curr_poi.comments.all
+    # respond_with(@comment, location: '/pois/' + @poi + '/comments')
+    respond_to do |format|
+      format.js
+    end
+  end
 
   private
     def strip_newlines
