@@ -198,9 +198,6 @@ function loader(){
         markers_and_infos['info'][index] = new google.maps.InfoWindow();
 
         markers_and_infos['marker'][index].setMap(map);
-        google.maps.event.addListener(markers_and_infos['marker'][index], 'click', function(){
-          markers_and_infos['info'][index].open(map, markers_and_infos['marker'][index]);
-        });
         google.maps.event.addListener(markers_and_infos['marker'][index], 'click', function() {
           glide.jump(index+2);
           stop_marker_jump();
